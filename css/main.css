@@ -3287,8 +3287,8 @@ blockquote p {
 }
 
 .start-page .section-inner {
-  background-color: transparent;
-  background-image: url(../images/kerge_start_page_1.jpg);
+  /* background-color: transparent; */
+  /* background-image: url(../images/kerge_start_page_1.jpg); */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   background-attachment: fixed;
@@ -3308,7 +3308,7 @@ blockquote p {
   right: 0;
   left: 0;
   bottom: 0;
-  background: rgba(10,10,10,0.45);
+  /* background: rgba(10,10,10,0.45); */
 }
 
 .start-page .title-block {

@@ -86,6 +86,138 @@
                 transform: scale(1);
       }
     }
+
+
+    .home-content {
+	    margin: 5% 10%
+    }
+
+    .flex-v-align {
+      vertical-align: middle;
+      width: 100%;
+      min-height: 100%;
+      align-items: center;
+      display: flex;
+      display: -ms-flexbox;
+      -ms-flex-pack: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      -webkit-box-direction: normal;
+      -moz-box-direction: normal;
+      -webkit-box-orient: horizontal;
+      -moz-box-orient: horizontal;
+      -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+      flex-direction: row;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -moz-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-align-content: stretch;
+      -ms-flex-line-pack: stretch;
+      align-content: stretch;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+      text-align: center;
+      margin: 0
+    }
+
+
+    .home-photo {
+      display: block;
+      position: relative;
+      width: 100%;
+      padding-bottom: calc(100% - 36px);
+      background-color: #fff;
+      border-radius: 1000px;
+      border: 18px solid #fff;
+      overflow: hidden;
+      -webkit-box-shadow: 0 0 25px 0 rgba(0, 0, 0, .1);
+      -moz-box-shadow: 0 0 25px 0 rgba(0, 0, 0, .1);
+      box-shadow: 0 0 25px 0 rgba(0, 0, 0, .1)
+    }
+
+  .home-photo .hp-inner {
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: auto;
+      display: block;
+      position: absolute;
+      top: -18px;
+      bottom: -18px;
+      width: auto;
+      left: -18px;
+      right: -18px
+    }
+
+    .home-buttons {
+      margin-top: 27px
+    }
+
+    @media only screen and (max-width:1100px) {
+      .home-content {
+        margin: 5% 0
+      }
+    }
+
+    @media only screen and (max-width:767px) {
+      .home-photo {
+        width: 60%;
+        padding-bottom: calc(60% - 36px);
+        margin: 30px auto
+      }
+      .home-text {
+        padding-right: 0
+      }
+      .home-text.hp-left {
+        padding-left: 0
+      }
+      .home-text h1,
+      .home-text h4 {
+        text-align: center
+      }
+      .home-buttons {
+        text-align: center
+      }
+    }
+
+    @media only screen and (max-width:648px) {
+      .home-photo,
+      .home-photo.hp-left {
+        width: 70%;
+        padding-bottom: calc(70% - 36px)
+      }
+    }
+
+    @media only screen and (max-width:500px) {
+      .home-photo,
+      .home-photo.hp-left {
+        width: 90%;
+        padding-bottom: calc(90% - 36px)
+      }
+      .home-text h1 {
+        font-size: 36px;
+        line-height: 42px
+      }
+      .home-text h4 {
+        font-size: 14px
+      }
+    }
+
     </style>
 
   </head>
@@ -154,7 +286,7 @@
           <!-- / Social Links -->
 
           <!-- Copyrights -->
-          <div class="copyrights">© 2018 All rights reserved.</div>
+          <div class="copyrights">© 2020 All rights reserved.</div>
           <!-- / Copyrights -->
         </div>
       </header>
@@ -188,28 +320,82 @@
           <!-- Subpages -->
           <div class="subpages">
 
+
+              <!-- OLD INTRO PAGE INSERTED -->
+              <!-- <div class="row">
+                <div class=" col-xs-12 col-sm-12">
+                  <div class="home-content">
+                    <div class="row flex-v-align">
+                      
+                      <div class="col-sm-12 col-md-5 col-lg-5">
+                        <div class="home-photo">
+                          <div class="hp-inner" style="background-image: url(img/main_photo.jpg);">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-12 col-md-7 col-lg-7">
+                        <div class="home-text hp-left">
+                          <div class="owl-carousel text-rotation">                                    
+                            <div class="item">
+                              <h4>Frontend-developer</h4>
+                            </div>
+
+                            <div class="item">
+                              <h4>Web Designer</h4>
+                            </div>
+                          </div>
+                            
+                          <h1>Alex Smith</h1>
+                          <p>Fusce tempor magna mi, non egestas velit ultricies nec. Aenean convallis, risus non condimentum gravida, odio mauris ullamcorper felis, ut venenatis purus ex eu mi. Quisque imperdiet lacinia urna, a placerat sapien pretium eu.</p>
+                                
+                          <div class="home-buttons">
+                            <a href="#" target="_blank" class="btn btn-primary">Download CV</a>
+                            <a href="#" target="_self" class="btn btn-secondary">Contact</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+              <!-- Home Page Top Part -->
+
+
             <!-- Home Subpage -->
             <section id="home" class="pt-page pt-page-home start-page">
               <div class="section-inner vcentered">
-                <div class="mask"></div>
-                <div class="row">
-                  <div class="col-sm-12 col-md-12 col-lg-12">
-                    <div class="title-block">
-                      <h2>Alex Smith</h2>
-                      <div class="owl-carousel text-rotation">                                    
-                        <div class="item">
-                          <div class="sp-subtitle">Web Designer</div>
+                <div id="particles-js" class="mask"></div>
+                <div class=" col-xs-12 col-sm-12">
+                  <div class="home-content">
+                    <div class="row flex-v-align">
+                      
+                      <div class="col-sm-12 col-md-5 col-lg-5">
+                        <div class="home-photo">
+                          <div class="hp-inner" style="background-image: url(images/photo.jpg);">
+                          </div>
                         </div>
-                        
-                        <div class="item">
-                          <div class="sp-subtitle">Frontend-developer</div>
+                      </div>
+
+                      <div class="col-sm-12 col-md-7 col-lg-7">
+                        <div class="home-text hp-left">
+                          I am <span class="passion" style="color: #e54b4b;"></span>
+
+                            
+                          <h1>Alex Smith</h1>
+                          <p>Fusce tempor magna mi, non egestas velit ultricies nec. Aenean convallis, risus non condimentum gravida, odio mauris ullamcorper felis, ut venenatis purus ex eu mi. Quisque imperdiet lacinia urna, a placerat sapien pretium eu.</p>
+                                
+                          <div class="home-buttons">
+                            <a href="#" target="_blank" class="btn btn-primary">Download CV</a>
+                            <a href="#" target="_self" class="btn btn-secondary">Contact</a>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </section>
+            </section> 
             <!-- End of Home Subpage -->
 
             <!-- About Me Subpage -->
@@ -1190,8 +1376,25 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/jquery.magnific-popup.min.js"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDf32aQTCVENBhFJbMBKOUTiUAABtC2o"></script>
+    <!-- <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCrDf32aQTCVENBhFJbMBKOUTiUAABtC2o"></script> -->
     <script src="js/jquery.googlemap.js"></script>
     <script src="js/main.js"></script>
+
+    <script src="js/typed.js"></script>
+    <script>
+      var typed = new Typed('.passion', {
+        strings: ["International Athlete", "Reasercher", "AI/ML Enthusiast"],
+        typeSpeed: 30,
+        backSpeed: 30,
+        backDelay: 2000,
+        loop: true
+      });
+    </script>
+    <script src="js/particles.js"></script>
+    <script src="js/app.js"></script>
+
+
+    
+
   </body>
 </html>
