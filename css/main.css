@@ -1289,14 +1289,15 @@ blockquote {
   line-height: 1.1em;
   position: relative;
   float: left;
-  margin: 0 0 4px;
+  margin: 0 0 12px;
+  line-height: 18px;
 }
 
 .skills-second-style .skill-value {
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.1em;
   position: relative;
-  float: right;
+  
   margin: 0 0 4px;
   color: #aaa;
 }
