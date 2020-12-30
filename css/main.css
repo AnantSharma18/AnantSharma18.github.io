@@ -1302,6 +1302,15 @@ blockquote {
   color: #aaa;
 }
 
+.skill-value-pro {
+  font-size: 12px;
+  line-height: 1.1em;
+  position: relative;
+  font-weight: 400;
+  margin: 0 0 4px;
+  color: rgb(92, 92, 92);
+}
+
 .pt-page .skills-second-style .skill-percentage, .pt-page .skills-second-style .skill-value {
   -webkit-transition: all 2s ease-in-out;
   -moz-transition: all 2s ease-in-out;
