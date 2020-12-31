@@ -380,9 +380,9 @@ input[type="button"]:hover,
 input[type="button"]:focus,
 input[type="submit"]:hover,
 input[type="submit"]:focus {
-  background-color: #0099e5;
+  background-color:#ffe7e7;
   border-color: #0099e5;
-  color: #fff;
+  color: rgb(0, 0, 0);
 }
 
 .btn-secondary {
@@ -394,7 +394,7 @@ input[type="submit"]:focus {
 .btn-secondary:focus {
   color: #222;
   border-color: #d5d5d5;
-  background-color: #d5d5d5;
+  background-color: #dff4ff;
 }
 /* / buttons */
 
