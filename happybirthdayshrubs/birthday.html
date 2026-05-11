@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Happy Birthday — A Letter</title>
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<main id="root"></main>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script>
+// Default tweakable content — between markers so host can persist edits.
+window.__TWEAKS = /*EDITMODE-BEGIN*/{
+  "theirName": "Shradha",
+  "yourName": "Anant",
+  "ageLabel": "Happy Sweet 16!",
+  "tagline": "A little corner of the internet made just for you - full of the things that make you special, memories we share, and a small secret that only you can unlock.",
+  "lockCombo": [
+    2,
+    4,
+    0,
+    8
+  ],
+  "lockHint": "The date you always forget",
+  "lockMessage": "Go to your room. Open the almirah. There's something for you there.",
+  "scratchNotes": [
+    "The way you make people feel seen, heard, and safe around you.",
+    "Your \"too cool to care\" vibe hiding the softest, cutest heart.",
+    "How your hugs somehow feel like home to everyone.",
+    "How you can be so cold one moment and the sweetest baby the next.",
+    "The face you make when you are feeling cute about yourself.",
+    "How a small trip to Yeti with you can completely change the course of my day."
+  ],
+  "trivia": [
+    {
+      "q": "What was the date when I came to pick you up from the airport and dropped you home?",
+      "hint": "It was raining that day, and we couldn’t even stop for a quick bite.",
+      "options": [
+        "22 July 2025",
+        "25 July 2025",
+        "30 July 2025",
+        "5 August 2025"
+      ],
+      "answer": 2,
+      "rightNote": "Correct. Rain, airport pickup, and no quick bite — unforgettable.",
+      "wrongNote": "Close, but it was 30 July 2025."
+    },
+    {
+      "q": "What’s the most important thing to ensure our future trips go smoothly?",
+      "options": [
+        "Wake up early so we can have breakfast peacefully",
+        "Make sure we’re both well-fed and not hangry",
+        "Study the city map and navigate properly",
+        "Get ready on time"
+      ],
+      "answer": 1,
+      "rightNote": "Correct. Fed people make better travel decisions.",
+      "wrongNote": "The real secret is making sure we’re both well-fed and not hangry."
+    },
+    {
+      "q": "Hypothetically, if I were an earthworm, what would you do?",
+      "options": [
+        "Ignore me",
+        "Step on me",
+        "Become an earthworm too :’)",
+        "Feed me to Sheru"
+      ],
+      "answer": 2,
+      "rightNote": "Correct. Romantic, absurd, and legally binding.",
+      "wrongNote": "Nope. You become an earthworm too :’)"
+    },
+    {
+      "q": "If we were stranded together on a trip, what would I definitely do first?",
+      "options": [
+        "Find food",
+        "Panic a little",
+        "Pretend everything is under control",
+        "Blame Google Maps"
+      ],
+      "answer": 2,
+      "rightNote": "Correct. Calm face first, chaos management later.",
+      "wrongNote": "I would absolutely pretend everything is under control first."
+    },
+    {
+      "q": "If our chats and call timings were leaked, what would people conclude first?",
+      "options": [
+        "We should give each other space",
+        "We urgently need better sleep schedules",
+        "We’re beyond repair creatures",
+        "We survive entirely on vibes"
+      ],
+      "answer": 1,
+      "rightNote": "Correct. The sleep schedules would be the first public concern.",
+      "wrongNote": "The first conclusion would be that we urgently need better sleep schedules."
+    }
+  ],
+  "memoryPairs": [
+    {
+      "glyph": "🥟",
+      "label": "Yeti Kothay"
+    },
+    {
+      "glyph": "⌂",
+      "label": "Home"
+    },
+    {
+      "glyph": "🧦",
+      "label": "Door sock"
+    },
+    {
+      "glyph": "🌿",
+      "label": "Hot basil"
+    },
+    {
+      "glyph": "♡",
+      "label": "Emotional Depth"
+    },
+    {
+      "glyph": "🧥",
+      "label": "Long Coats"
+    },
+    {
+      "glyph": "¶",
+      "label": "Grammar Nazi"
+    },
+    {
+      "glyph": "↔",
+      "label": "Chalebility"
+    }
+  ],
+  "letter": {
+    "greeting": "Dear Birthday Girl,",
+    "paragraphs": [
+      "Every meaningful thing in my life in the past one year somehow traces back to you — directly, indirectly, quietly, constantly. Even my happiest memories feel brighter because you exist in them.",
+      "You have this way of making life softer without making it smaller. You make difficult days feel survivable. You make ordinary moments feel important.",
+      "I hope this next year and the numerous ones thereafter give you everything you deserve: peace in your mind, excitement in your heart, and moments that make you stop and realize how deeply loved you are - by me, by every one of us.",
+      "Happy birthday, Shradha."
+    ],
+    "signature": "Your Anant",
+    "signoff": "All my love, for this year and every year after it"
+  }
+}/*EDITMODE-END*/;
+</script>
+
+<script type="text/babel">
+function Opener({ theirName, onOpen }) {
+  const [opening, setOpening] = React.useState(false);
+
+  const handle = () => {
+    if (opening) return;
+    setOpening(true);
+    setTimeout(() => onOpen(), 1100);
+  };
+
+  return (
+    <section className="opener">
+      <div className="opener-inner">
+        <div className="opener-sub">A letter for you · {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric' })}</div>
+        <div className={`envelope ${opening ? 'opening' : ''}`} onClick={handle}>
+          <div className="env-body"></div>
+          <div className="env-letter">
+            <div className="hand">Happy Birthday</div>
+            <div className="mono">TAP TO OPEN</div>
+          </div>
+          <div className="env-flap"></div>
+          <div className="wax-seal">&amp;</div>
+        </div>
+        <div className="opener-hint">For {theirName}</div>
+      </div>
+    </section>
+  );
+}
+
+window.Opener = Opener;
+</script>
+<script type="text/babel">
+function Hero({ theirName, age, tagline }) {
+  const confetti = Array.from({ length: 34 }, (_, i) => ({
+    id: i,
+    left: (i * 29) % 100,
+    delay: -((i * 0.37) % 6),
+    dur: 5 + (i % 5) * 0.7,
+    color: ['#c87a7a', '#d4a574', '#9b6a6a', '#3a1820', '#e8c097'][i % 5],
+    size: 6 + (i % 4) * 2,
+    rot: (i * 47) % 360
+  }));
+
+  return (
+    <section className="chapter hero" data-screen-label="01 Hero">
+      <div className="hero-confetti" aria-hidden="true">
+        {confetti.map(bit => (
+          <span
+            key={bit.id}
+            className="hero-confetto"
+            style={{
+              left: `${bit.left}%`,
+              animationDelay: `${bit.delay}s`,
+              animationDuration: `${bit.dur}s`,
+              background: bit.color,
+              width: `${bit.size}px`,
+              height: `${bit.size + 5}px`,
+              transform: `rotate(${bit.rot}deg)`
+            }}
+          />
+        ))}
+      </div>
+      <div className="chapter-inner">
+        <div className="chapter-label">IT'S YOUR DAY</div>
+        <h1 className="display">
+          Happy Birthday,<br />
+          <em>{theirName}</em>
+        </h1>
+        <div className="decoration"></div>
+        <p className="tagline">{tagline}</p>
+        {age && <div className="age-badge">{age}</div>}
+      </div>
+    </section>);
+
+}
+
+window.Hero = Hero;
+</script>
+<script type="text/babel">
+function Trivia({ questions }) {
+  const [idx, setIdx] = React.useState(0);
+  const [selected, setSelected] = React.useState(null);
+  const [score, setScore] = React.useState(0);
+  const [answered, setAnswered] = React.useState([]);
+  const [done, setDone] = React.useState(false);
+
+  const q = questions[idx];
+
+  const pick = (i) => {
+    if (selected !== null) return;
+    setSelected(i);
+    const correct = i === q.answer;
+    if (correct) setScore(score + 1);
+    setAnswered([...answered, { correct, feedback: correct ? q.rightNote : q.wrongNote }]);
+    setTimeout(() => {
+      if (idx + 1 >= questions.length) setDone(true);else
+      {setIdx(idx + 1);setSelected(null);}
+    }, 1800);
+  };
+
+  const reset = () => {setIdx(0);setSelected(null);setScore(0);setAnswered([]);setDone(false);};
+
+  const medal = () => {
+    const pct = score / questions.length;
+    if (pct === 1) return "Flawless. You know me better than anyone.";
+    if (pct >= 0.7) return "Pretty good — you've been paying attention.";
+    if (pct >= 0.4) return "A respectable effort. We'll work on the rest together.";
+    return "…so, who are you again? (kidding. mostly.)";
+  };
+
+  return (
+    <section className="chapter" data-screen-label="02 Trivia">
+      <div className="chapter-inner">
+        <div style={{ textAlign: 'center' }}>
+          <div className="chapter-label">HOW WELL DO YOU KNOW US</div>
+        </div>
+        <div className="trivia-card">
+          {!done ?
+          <>
+              <div className="progress-dots">
+                {questions.map((_, i) =>
+              <span key={i} className={i === idx ? 'active' : i < idx ? 'done' : ''} />
+              )}
+              </div>
+              <div className="trivia-question">{q.q}</div>
+              {q.hint && <div className="trivia-hint">Hint: {q.hint}</div>}
+              <div className="trivia-options">
+                {q.options.map((opt, i) => {
+                const letter = String.fromCharCode(65 + i);
+                let cls = 'trivia-opt';
+                if (selected !== null) {
+                  if (i === q.answer) cls += ' correct';else
+                  if (i === selected) cls += ' wrong';
+                }
+                return (
+                  <button key={i} className={cls} onClick={() => pick(i)} disabled={selected !== null}>
+                      <span className="letter">{letter}</span>
+                      <span>{opt}</span>
+                    </button>);
+
+              })}
+              </div>
+              <div className="trivia-feedback">
+                {selected !== null && answered[answered.length - 1]?.feedback}
+              </div>
+            </> :
+
+          <div className="trivia-result">
+              <div>
+                <span className="score">{score}</span>
+                <span className="total"> / {questions.length}</span>
+              </div>
+              <p>{medal()}</p>
+              <button className="trivia-opt" style={{ display: 'inline-flex', marginTop: 24 }} onClick={reset}>
+                <span className="letter">↻</span>
+                <span>Try again</span>
+              </button>
+            </div>
+          }
+        </div>
+      </div>
+    </section>);
+
+}
+
+window.Trivia = Trivia;
+</script>
+<script type="text/babel">
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function MemoryMatch({ pairs }) {
+  const makeDeck = React.useCallback(() => {
+    const cards = [];
+    pairs.forEach((p, i) => {
+      cards.push({ id: `${i}a`, pairId: i, glyph: p.glyph, label: p.label });
+      cards.push({ id: `${i}b`, pairId: i, glyph: p.glyph, label: p.label });
+    });
+    return shuffle(cards);
+  }, [pairs]);
+
+  const [deck, setDeck] = React.useState(makeDeck);
+  const [flipped, setFlipped] = React.useState([]);
+  const [matched, setMatched] = React.useState(new Set());
+  const [moves, setMoves] = React.useState(0);
+  const [busy, setBusy] = React.useState(false);
+
+  const flip = (idx) => {
+    if (busy || flipped.includes(idx) || matched.has(deck[idx].pairId)) return;
+    const next = [...flipped, idx];
+    setFlipped(next);
+    if (next.length === 2) {
+      setBusy(true);
+      setMoves(moves + 1);
+      const [a, b] = next;
+      if (deck[a].pairId === deck[b].pairId) {
+        setTimeout(() => {
+          setMatched(new Set([...matched, deck[a].pairId]));
+          setFlipped([]);
+          setBusy(false);
+        }, 600);
+      } else {
+        setTimeout(() => {
+          setFlipped([]);
+          setBusy(false);
+        }, 1100);
+      }
+    }
+  };
+
+  const reset = () => {
+    setDeck(makeDeck());
+    setFlipped([]);
+    setMatched(new Set());
+    setMoves(0);
+    setBusy(false);
+  };
+
+  const won = matched.size === pairs.length;
+
+  return (
+    <section className="chapter" data-screen-label="03 Memory">
+      <div className="chapter-inner">
+        <div style={{textAlign:'center', marginBottom: 32}}>
+          <div className="chapter-label">Things We Share</div>
+          <h2 className="display" style={{marginTop: 8}}>Match the memories</h2>
+        </div>
+        <div className="memory-meta">
+          <span>Moves · {moves}</span>
+          <span>Matched · {matched.size} / {pairs.length}</span>
+          <button onClick={reset}>Shuffle</button>
+        </div>
+        <div className="memory-grid">
+          {deck.map((card, i) => {
+            const isFlipped = flipped.includes(i) || matched.has(card.pairId);
+            const isMatched = matched.has(card.pairId);
+            return (
+              <div key={card.id} className={`mem-card ${isFlipped ? 'flipped' : ''} ${isMatched ? 'matched' : ''}`} onClick={() => flip(i)}>
+                <div className="mem-face mem-back">&amp;</div>
+                <div className="mem-face mem-front">
+                  <div className="glyph">{card.glyph}</div>
+                  <div className="label">{card.label}</div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        {won && (
+          <div className="memory-win">
+            <div className="hand">Perfect — just like us.</div>
+            <p style={{marginTop: 12, color: 'var(--ink-2)', fontStyle:'italic'}}>{moves} moves. Every single one of these is a real memory.</p>
+          </div>
+        )}
+      </div>
+    </section>
+  );
+}
+
+window.MemoryMatch = MemoryMatch;
+</script>
+<script type="text/babel">
+function ScratchCard({ num, text }) {
+  const canvasRef = React.useRef(null);
+  const wrapRef = React.useRef(null);
+  const [done, setDone] = React.useState(false);
+  const [ready, setReady] = React.useState(false);
+  const drawing = React.useRef(false);
+
+  React.useEffect(() => {
+    setDone(false);
+    setReady(false);
+    drawing.current = false;
+    let frame = 0;
+    const paint = () => {
+      const cvs = canvasRef.current;
+      const wrap = wrapRef.current;
+      if (!cvs || !wrap) return;
+      const rect = wrap.getBoundingClientRect();
+      if (rect.width < 2 || rect.height < 2) {
+        frame = requestAnimationFrame(paint);
+        return;
+      }
+
+      const dpr = window.devicePixelRatio || 1;
+      cvs.width = Math.round(rect.width * dpr);
+      cvs.height = Math.round(rect.height * dpr);
+      cvs.style.width = `${rect.width}px`;
+      cvs.style.height = `${rect.height}px`;
+
+      const ctx = cvs.getContext('2d');
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.globalCompositeOperation = 'source-over';
+
+      const grad = ctx.createLinearGradient(0, 0, rect.width, rect.height);
+      grad.addColorStop(0, '#3a1820');
+      grad.addColorStop(0.5, '#5c2a2e');
+      grad.addColorStop(1, '#2a1015');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, rect.width, rect.height);
+
+      ctx.fillStyle = 'rgba(230, 201, 170, 0.2)';
+      ctx.font = 'italic 23px "Cormorant Garamond", serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      for (let y = 0; y < rect.height + 48; y += 48) {
+        for (let x = 0; x < rect.width + 80; x += 80) {
+          ctx.fillText('♡', x + (y / 48 % 2 === 0 ? 0 : 40), y);
+        }
+      }
+      ctx.fillStyle = 'rgba(230, 201, 140, 0.95)';
+      ctx.font = '10px "JetBrains Mono", monospace';
+      ctx.letterSpacing = '2px';
+      ctx.fillText('CLICK + RUB TO REVEAL', rect.width / 2, rect.height / 2);
+
+      ctx.globalCompositeOperation = 'destination-out';
+      ctx.lineWidth = 44;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      setReady(true);
+    };
+
+    frame = requestAnimationFrame(paint);
+    window.addEventListener('resize', paint);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('resize', paint);
+    };
+  }, []);
+
+  const getPos = (e) => {
+    const rect = canvasRef.current.getBoundingClientRect();
+    return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+  };
+
+  const start = (e) => {
+    if (done) return;
+    e.preventDefault();
+    e.currentTarget.setPointerCapture?.(e.pointerId);
+    drawing.current = true;
+    const ctx = canvasRef.current.getContext('2d');
+    const { x, y } = getPos(e);
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(x + 0.1, y + 0.1);
+    ctx.stroke();
+  };
+
+  const move = (e) => {
+    if (!drawing.current || done) return;
+    e.preventDefault();
+    const ctx = canvasRef.current.getContext('2d');
+    const { x, y } = getPos(e);
+    ctx.lineTo(x, y);
+    ctx.stroke();
+  };
+
+  const end = () => {
+    if (!drawing.current) return;
+    drawing.current = false;
+    // Check pct scratched
+    const cvs = canvasRef.current;
+    const ctx = cvs.getContext('2d');
+    const img = ctx.getImageData(0, 0, cvs.width, cvs.height).data;
+    let cleared = 0;
+    const step = 40;
+    for (let i = 3; i < img.length; i += step * 4) {
+      if (img[i] < 20) cleared++;
+    }
+    const pct = cleared / (img.length / (step * 4));
+    if (pct > 0.5) setDone(true);
+  };
+
+  return (
+    <div className={`scratch-card ${ready ? 'ready' : ''} ${done ? 'done' : ''}`} ref={wrapRef}>
+      <div className="scratch-message">
+        <div className="num">№ {String(num).padStart(2, '0')}</div>
+        <div className="text">{text}</div>
+      </div>
+      <canvas
+        className="scratch-canvas"
+        ref={canvasRef}
+        onPointerDown={start}
+        onPointerMove={move}
+        onPointerUp={end}
+        onPointerCancel={end}
+        onPointerLeave={end}
+      />
+    </div>
+  );
+}
+
+function ScratchSection({ notes }) {
+  return (
+    <section className="chapter" data-screen-label="04 Scratch">
+      <div className="chapter-inner">
+        <div style={{textAlign:'center', marginBottom: 40}}>
+          <div className="chapter-label">LITTLE REASONS</div>
+          <h2 className="display" style={{marginTop: 8}}>Why you are so special</h2>
+          <p className="tagline" style={{margin: '14px auto 0', maxWidth: 560, fontStyle:'italic', color: 'var(--ink-2)'}}>
+            Click and rub across each card to reveal what is hiding underneath.
+          </p>
+        </div>
+        <div className="scratch-grid">
+          {notes.map((n, i) => <ScratchCard key={i} num={i + 1} text={n} />)}
+        </div>
+        <p className="scratch-hint">click and rub across each card to reveal</p>
+      </div>
+    </section>
+  );
+}
+
+window.ScratchSection = ScratchSection;
+</script>
+<script type="text/babel">
+function CombinationLock({ combo, hint, message, onUnlock }) {
+  const [dials, setDials] = React.useState(() => combo.map(() => 0));
+  const [unlocked, setUnlocked] = React.useState(false);
+  const [shake, setShake] = React.useState(false);
+
+  const change = (i, delta) => {
+    if (unlocked) return;
+    const next = [...dials];
+    next[i] = (next[i] + delta + 10) % 10;
+    setDials(next);
+    if (next.every((v, idx) => v === combo[idx])) {
+      setTimeout(() => {
+        setUnlocked(true);
+        onUnlock && onUnlock();
+      }, 400);
+    }
+  };
+
+  const status = unlocked
+    ? '✓ Unlocked'
+    : `${dials.every((v, i) => v === combo[i]) ? 'opening…' : 'enter the date in DDMM format'}`;
+
+  return (
+    <section className="chapter" data-screen-label="05 Lock">
+      <div className="chapter-inner">
+        <div style={{textAlign:'center', marginBottom: 40}}>
+          <div className="chapter-label">A SMALL KEY</div>
+          <h2 className="display" style={{marginTop: 8}}>Unlock a secret</h2>
+        </div>
+        <div className={`lock-wrap ${shake ? 'shake' : ''}`}>
+          <div className="lock-hint-q">{hint}</div>
+          <div className="dials">
+            {dials.map((v, i) => (
+              <div key={i} className="dial">
+                <button className="dial-btn" onClick={() => change(i, 1)} aria-label="up">▲</button>
+                <div className="dial-num">{v}</div>
+                <button className="dial-btn" onClick={() => change(i, -1)} aria-label="down">▼</button>
+              </div>
+            ))}
+          </div>
+          <div className={`lock-status ${unlocked ? 'success' : ''}`}>{status}</div>
+          <div className={`lock-message ${unlocked ? 'show' : ''}`}>
+            {message}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+window.CombinationLock = CombinationLock;
+</script>
+<script type="text/babel">
+function Letter({ date, greeting, paragraphs, signoff, signature }) {
+  return (
+    <section className="chapter" data-screen-label="07 Letter">
+      <div className="chapter-inner">
+        <div style={{textAlign:'center', marginBottom: 48}}>
+          <div className="chapter-label">THE PART I MEAN MOST</div>
+        </div>
+        <div className="letter-page">
+          <div className="letter-date">{date}</div>
+          <div className="letter-greeting">{greeting}</div>
+          <div className="letter-body">
+            {paragraphs.map((p, i) => <p key={i}>{p}</p>)}
+            <p style={{marginTop: 24}}>{signoff}</p>
+          </div>
+          <div className="letter-sign">{signature}</div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+window.Letter = Letter;
+</script>
+<script type="text/babel">
+function Confetti({ fire }) {
+  const [bits, setBits] = React.useState([]);
+  React.useEffect(() => {
+    if (!fire) return;
+    const colors = ['#c87a7a', '#d4a574', '#9b6a6a', '#3a1820', '#e8c097'];
+    const b = Array.from({length: 80}, (_, i) => ({
+      id: i,
+      left: Math.random() * 100,
+      delay: Math.random() * 1.5,
+      dur: 3 + Math.random() * 3,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      rot: Math.random() * 360,
+    }));
+    setBits(b);
+    const t = setTimeout(() => setBits([]), 8000);
+    return () => clearTimeout(t);
+  }, [fire]);
+  if (!bits.length) return null;
+  return (
+    <div className="confetti-layer">
+      {bits.map(b => (
+        <div key={b.id} className="confetto" style={{
+          left: b.left + '%',
+          background: b.color,
+          animationDelay: b.delay + 's',
+          animationDuration: b.dur + 's',
+          transform: `rotate(${b.rot}deg)`,
+        }}/>
+      ))}
+    </div>
+  );
+}
+
+window.Confetti = Confetti;
+</script>
+<script type="text/babel">
+function TweaksPanel({ open, onClose, data, onChange }) {
+  if (!open) return null;
+
+  const upd = (path, val) => {
+    const next = JSON.parse(JSON.stringify(data));
+    const parts = path.split('.');
+    let ref = next;
+    for (let i = 0; i < parts.length - 1; i++) ref = ref[parts[i]];
+    ref[parts[parts.length - 1]] = val;
+    onChange(next);
+  };
+
+  const updArr = (path, idx, field, val) => {
+    const next = JSON.parse(JSON.stringify(data));
+    const parts = path.split('.');
+    let ref = next;
+    for (let i = 0; i < parts.length; i++) ref = ref[parts[i]];
+    if (field === null) ref[idx] = val;
+    else ref[idx][field] = val;
+    onChange(next);
+  };
+
+  return (
+    <div className="tweaks-panel open">
+      <button className="tweak-close" onClick={onClose}>✕</button>
+      <h3>Tweaks</h3>
+      <div className="sub">Personalize · saved to file</div>
+
+      <div className="tweak-group">
+        <h4>Names & Date</h4>
+        <div className="tweak-row">
+          <label>their name</label>
+          <input type="text" value={data.theirName} onChange={e => upd('theirName', e.target.value)} />
+        </div>
+        <div className="tweak-row">
+          <label>your name (signature)</label>
+          <input type="text" value={data.yourName} onChange={e => upd('yourName', e.target.value)} />
+        </div>
+        <div className="tweak-row">
+          <label>year / age label</label>
+          <input type="text" value={data.ageLabel} onChange={e => upd('ageLabel', e.target.value)} />
+        </div>
+        <div className="tweak-row">
+          <label>tagline (hero)</label>
+          <textarea value={data.tagline} onChange={e => upd('tagline', e.target.value)} />
+        </div>
+      </div>
+
+      <div className="tweak-group">
+        <h4>Lock Combination</h4>
+        <div className="tweak-row">
+          <label>4-digit code (e.g. MMDD of first date)</label>
+          <input type="text" maxLength={4} value={data.lockCombo.join('')} onChange={e => {
+            const v = e.target.value.replace(/\D/g,'').slice(0,4).padEnd(4,'0').split('').map(Number);
+            upd('lockCombo', v);
+          }} />
+        </div>
+        <div className="tweak-row">
+          <label>hint question</label>
+          <input type="text" value={data.lockHint} onChange={e => upd('lockHint', e.target.value)} />
+        </div>
+        <div className="tweak-row">
+          <label>unlocked message</label>
+          <textarea value={data.lockMessage} onChange={e => upd('lockMessage', e.target.value)} />
+        </div>
+      </div>
+
+      <div className="tweak-group">
+        <h4>Letter</h4>
+        <div className="tweak-row">
+          <label>greeting</label>
+          <input type="text" value={data.letter.greeting} onChange={e => upd('letter.greeting', e.target.value)} />
+        </div>
+        <div className="tweak-row">
+          <label>body (one paragraph per line)</label>
+          <textarea style={{minHeight: 180}} value={data.letter.paragraphs.join('\n')} onChange={e => upd('letter.paragraphs', e.target.value.split('\n'))} />
+        </div>
+        <div className="tweak-row">
+          <label>signature</label>
+          <input type="text" value={data.letter.signature} onChange={e => upd('letter.signature', e.target.value)} />
+        </div>
+      </div>
+
+      <div className="tweak-group">
+        <h4>Scratch-off reasons ({data.scratchNotes.length})</h4>
+        {data.scratchNotes.map((n, i) => (
+          <div className="tweak-row" key={i}>
+            <label>№ {String(i+1).padStart(2,'0')}</label>
+            <textarea value={n} onChange={e => updArr('scratchNotes', i, null, e.target.value)} />
+          </div>
+        ))}
+      </div>
+
+      <div className="tweak-group">
+        <h4>Trivia questions</h4>
+        {data.trivia.map((q, i) => (
+          <div key={i} style={{marginBottom: 14, paddingBottom: 10, borderBottom: '1px dotted rgba(58,24,32,0.1)'}}>
+            <div className="tweak-row">
+              <label>Q{i+1}</label>
+              <input type="text" value={q.q} onChange={e => updArr('trivia', i, 'q', e.target.value)} />
+            </div>
+            {q.options.map((o, j) => (
+              <div className="tweak-row" key={j} style={{display:'flex', gap:6, alignItems:'center'}}>
+                <input type="radio" checked={q.answer === j} onChange={() => updArr('trivia', i, 'answer', j)} />
+                <input type="text" value={o} onChange={e => {
+                  const next = JSON.parse(JSON.stringify(data));
+                  next.trivia[i].options[j] = e.target.value;
+                  onChange(next);
+                }} />
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+window.TweaksPanel = TweaksPanel;
+</script>
+
+<script type="text/babel">
+const { useState, useEffect, useMemo } = React;
+
+function App() {
+  const [data, setData] = useState(window.__TWEAKS);
+  const [opened, setOpened] = useState(() => localStorage.getItem('bday-opened') === '1');
+  const [fireConfetti, setFireConfetti] = useState(false);
+  const [lockConfetti, setLockConfetti] = useState(false);
+  const [tweaksOpen, setTweaksOpen] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle('opened', opened);
+  }, [opened]);
+
+  // Edit mode protocol
+  useEffect(() => {
+    const onMsg = (e) => {
+      if (!e.data || typeof e.data !== 'object') return;
+      if (e.data.type === '__activate_edit_mode') setTweaksOpen(true);
+      if (e.data.type === '__deactivate_edit_mode') setTweaksOpen(false);
+    };
+    window.addEventListener('message', onMsg);
+    window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+    return () => window.removeEventListener('message', onMsg);
+  }, []);
+
+  const updateData = (next) => {
+    setData(next);
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: next }, '*');
+  };
+
+  const openEnvelope = () => {
+    setOpened(true);
+    localStorage.setItem('bday-opened', '1');
+    setFireConfetti(true);
+    setTimeout(() => setFireConfetti(false), 100);
+    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 50);
+  };
+
+  return (
+    <>
+      {!opened && <Opener theirName={data.theirName} onOpen={openEnvelope} />}
+      {opened && (
+        <>
+          <Hero theirName={data.theirName} age={data.ageLabel} tagline={data.tagline} />
+          <Trivia questions={data.trivia} />
+          <MemoryMatch pairs={data.memoryPairs} />
+          <ScratchSection notes={data.scratchNotes} />
+          <Letter
+            date={new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
+            greeting={data.letter.greeting}
+            paragraphs={data.letter.paragraphs}
+            signoff={data.letter.signoff}
+            signature={data.letter.signature}
+          />
+          <CombinationLock
+            combo={data.lockCombo}
+            hint={data.lockHint}
+            message={data.lockMessage}
+            onUnlock={() => { setLockConfetti(true); setTimeout(() => setLockConfetti(false), 100); }}
+          />
+          <div className="chapter-sep">♡</div>
+        </>
+      )}
+      <Confetti fire={fireConfetti || lockConfetti} />
+      <TweaksPanel open={tweaksOpen} onClose={() => setTweaksOpen(false)} data={data} onChange={updateData} />
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
