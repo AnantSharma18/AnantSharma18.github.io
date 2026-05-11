@@ -136,7 +136,7 @@ window.__TWEAKS = /*EDITMODE-BEGIN*/{
   "letter": {
     "greeting": "Dear Birthday Girl,",
     "paragraphs": [
-      "Every meaningful thing in my life in the past one year somehow traces back to you — directly, indirectly, quietly, constantly. Even my happiest memories feel brighter because you exist in them.",
+      "Every meaningful thing in my life over the past year somehow traces back to you — directly, indirectly, quietly, constantly. Even my happiest memories feel brighter because you exist in them.",
       "You have this way of making life softer without making it smaller. You make difficult days feel survivable. You make ordinary moments feel important.",
       "I hope this next year and the numerous ones thereafter give you everything you deserve: peace in your mind, excitement in your heart, and moments that make you stop and realize how deeply loved you are - by me, by every one of us.",
       "Happy birthday, Shradha."
@@ -806,14 +806,13 @@ const { useState, useEffect, useMemo } = React;
 
 function App() {
   const [data, setData] = useState(window.__TWEAKS);
-  const [opened, setOpened] = useState(() => localStorage.getItem('bday-opened') === '1');
   const [fireConfetti, setFireConfetti] = useState(false);
   const [lockConfetti, setLockConfetti] = useState(false);
   const [tweaksOpen, setTweaksOpen] = useState(false);
 
   useEffect(() => {
-    document.body.classList.toggle('opened', opened);
-  }, [opened]);
+    document.body.classList.add('opened');
+  }, []);
 
   // Edit mode protocol
   useEffect(() => {
@@ -832,39 +831,26 @@ function App() {
     window.parent.postMessage({ type: '__edit_mode_set_keys', edits: next }, '*');
   };
 
-  const openEnvelope = () => {
-    setOpened(true);
-    localStorage.setItem('bday-opened', '1');
-    setFireConfetti(true);
-    setTimeout(() => setFireConfetti(false), 100);
-    setTimeout(() => window.scrollTo({ top: 0, behavior: 'instant' }), 50);
-  };
-
   return (
     <>
-      {!opened && <Opener theirName={data.theirName} onOpen={openEnvelope} />}
-      {opened && (
-        <>
-          <Hero theirName={data.theirName} age={data.ageLabel} tagline={data.tagline} />
-          <Trivia questions={data.trivia} />
-          <MemoryMatch pairs={data.memoryPairs} />
-          <ScratchSection notes={data.scratchNotes} />
-          <Letter
-            date={new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}
-            greeting={data.letter.greeting}
-            paragraphs={data.letter.paragraphs}
-            signoff={data.letter.signoff}
-            signature={data.letter.signature}
-          />
-          <CombinationLock
-            combo={data.lockCombo}
-            hint={data.lockHint}
-            message={data.lockMessage}
-            onUnlock={() => { setLockConfetti(true); setTimeout(() => setLockConfetti(false), 100); }}
-          />
-          <div className="chapter-sep">♡</div>
-        </>
-      )}
+      <Hero theirName={data.theirName} age={data.ageLabel} tagline={data.tagline} />
+      <Trivia questions={data.trivia} />
+      <MemoryMatch pairs={data.memoryPairs} />
+      <ScratchSection notes={data.scratchNotes} />
+      <Letter
+        date="May 12, 2026"
+        greeting={data.letter.greeting}
+        paragraphs={data.letter.paragraphs}
+        signoff={data.letter.signoff}
+        signature={data.letter.signature}
+      />
+      <CombinationLock
+        combo={data.lockCombo}
+        hint={data.lockHint}
+        message={data.lockMessage}
+        onUnlock={() => { setLockConfetti(true); setTimeout(() => setLockConfetti(false), 100); }}
+      />
+      <div className="chapter-sep">♡</div>
       <Confetti fire={fireConfetti || lockConfetti} />
       <TweaksPanel open={tweaksOpen} onClose={() => setTweaksOpen(false)} data={data} onChange={updateData} />
     </>
