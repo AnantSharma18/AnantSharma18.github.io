@@ -48,7 +48,7 @@ p.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ink2);max-width:52ch}
 .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
 
 /* cover */
-.cover{position:relative;min-height:calc(100svh - 48px);display:grid;align-items:center;overflow:hidden;padding:48px 0 40px}
+.cover{position:relative;min-height:calc(100vh - 48px);display:grid;align-items:center;overflow:hidden;padding:48px 0 40px}
 .cover .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center}
 .cover h1{font-size:clamp(3.4rem,9.5vw,8.6rem);line-height:.92;margin:.15em 0 .2em}
 .cover h1 i{font-style:italic;font-weight:300;color:var(--red)}
@@ -56,7 +56,7 @@ p.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ink2);max-width:52ch}
 .cover .meta{margin-top:34px;display:grid;gap:6px;max-width:42ch}
 .cover .meta .mono{letter-spacing:.16em}
 .cover .stage{position:relative;height:min(78vh,720px)}
-.cover .stage .cut{width:min(78%,520px);left:50%;top:50%;transform:translate(-50%,-50%);--r:1.5deg}
+.cover .stage .cut{width:min(84%,540px);left:50%;top:50%;transform:translate(-50%,-50%);--r:1.5deg}
 .cover .stage .cut.main{z-index:2}
 .cover .stage .ring{position:absolute;right:4%;top:10%;width:38%;--r:-6deg;z-index:3}
 .cover .note{position:absolute;left:4%;bottom:6%;max-width:220px;transform:rotate(-5deg)}
@@ -66,7 +66,7 @@ p.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ink2);max-width:52ch}
 @keyframes nudge{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
 .scrollhint{animation:nudge 2s ease-in-out infinite}
 @media(max-width:800px){.cover{min-height:0;padding:28px 0 0}.cover .grid{grid-template-columns:1fr;gap:8px}.cover h1{font-size:clamp(3.4rem,17vw,5.4rem)}.cover .meta{margin-top:22px}
-.cover .stage{height:min(50svh,460px);margin-top:6px}.cover .stage .cut{width:min(92%,420px);left:50%;top:auto;bottom:0;transform:translateX(-50%)}
+.cover .stage{height:min(92vw,400px);margin-top:6px}.cover .stage .cut{width:min(92%,420px);left:50%;top:auto;bottom:0;transform:translateX(-50%)}
 .cover .note{left:0;top:6%;bottom:auto;max-width:200px;font-size:1.35rem}.cover .note svg{right:-54px;top:16px;width:60px}.scrollhint{display:none}}
 
 /* sections */
@@ -150,7 +150,7 @@ th.num{text-align:right}
 
 /* timeline */
 .tl{position:relative;height:420vh}
-.tl .sticky{position:sticky;top:48px;height:calc(100svh - 48px);overflow:hidden}
+.tl .sticky{position:sticky;top:48px;height:calc(100vh - 48px);overflow:hidden}
 .tl .road{position:absolute;left:0;right:0;bottom:18%;border-top:1px dashed var(--ink2);opacity:.5}
 .tl .track{position:absolute;left:0;top:0;height:100%;display:flex;align-items:center;gap:clamp(40px,8vw,120px);padding-left:50vw;will-change:transform;transform:translateX(calc(var(--p,0) * var(--len,-3000px)))}
 .tl .stop{flex:0 0 auto;width:min(78vw,340px);background:#fff;border:1px solid var(--line);padding:22px 24px;border-radius:4px;box-shadow:0 14px 30px rgba(27,33,48,.08);position:relative;transform:translateY(-8vh)}
@@ -232,7 +232,7 @@ footer ol{padding-left:1.2em;display:grid;gap:6px;max-width:70ch}
 .gloss dd{margin:6px 0 18px;font-size:1rem;color:var(--ink2)}
 .gloss dd i{font-family:var(--serif);color:var(--ink);font-size:1.08rem}
 .gloss dd .ex{display:block;margin-top:6px;font-family:var(--serif);font-style:italic;color:var(--ink);font-size:1.05rem}
-@media(max-width:800px){.gloss{grid-template-columns:1fr}.letter-art{display:none}.board{margin-top:18px}.board .row{grid-template-columns:82px 1fr;padding:6px 0;font-size:.9rem}.board .row div span{display:none}.cover .note svg{display:none}.cover .tagline{font-size:1.05rem;margin-top:8px}}
+@media(max-width:800px){.btn .lg{display:none}.gloss{grid-template-columns:1fr}.letter-art{min-height:0!important;margin-top:28px;padding-bottom:0}.letter-art .cut{position:relative!important;width:min(92%,360px)!important;margin:0 auto}.letter-art .cap{position:static!important;margin-top:10px}.board{margin-top:18px}.board .row{grid-template-columns:82px 1fr;padding:6px 0;font-size:.9rem}.board .row div span{display:none}.cover .note svg{display:none}.cover .tagline{font-size:1.05rem;margin-top:8px}}
 .chart{width:100%;height:auto;display:block;overflow:visible}
 .chart text{font-family:var(--mono);font-size:11px;fill:var(--ink2)}
 .chart .lbl{font-family:var(--serif);font-style:italic;font-size:13px;fill:var(--ink)}
@@ -276,10 +276,9 @@ footer ol{padding-left:1.2em;display:grid;gap:6px;max-width:70ch}
 .cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-top:12px;display:flex;justify-content:space-between;gap:12px;white-space:nowrap}
 @keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .drift{animation:drift 7s ease-in-out infinite}
-.cover .stage .win{width:min(80%,500px);aspect-ratio:4/5;margin:0 0 0 auto}
 .cover .stage .note{left:0;bottom:8%;max-width:210px}
 .cover .stage .note svg{right:-64px;top:-2px}
-@media(max-width:800px){.cover .stage{height:auto;margin-top:14px}.cover .stage .win{width:min(88%,380px)}.cover .stage .note{position:relative;margin:14px 0 0;transform:rotate(-3deg);max-width:none;top:auto}}
+@media(max-width:800px){.cover .stage{height:min(92vw,400px);margin-top:18px}.cover .stage .cut{width:min(86%,340px);left:50%;top:auto;bottom:0;transform:translateX(-50%)}.cover .stage .note{position:absolute;left:0;bottom:-44px;top:auto;max-width:none;transform:rotate(-3deg);font-size:1.25rem}.cover{padding-bottom:48px}}
 .letter-art .win{width:min(82%,380px);aspect-ratio:4/5;margin-left:auto}
 .medallion{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
 .medallion .win{width:140px;aspect-ratio:1}
@@ -509,7 +508,7 @@ body.locked{overflow:hidden}
       <h2>The <em>"I love you more"</em> dispute</h2>
       <p class="lede">Filed by both parties, repeatedly, since 27 September 2025. Neither side has produced evidence. Both keep filing.</p>
       <div class="ruling">Ruling: unresolved. Referred to FY27. The respondent may file a counter-claim below.</div>
-      <button class="btn" id="claim">File counter-claim: "I love you more" <span>→</span></button>
+      <button class="btn" id="claim">File counter-claim<span class="lg">: "I love you more"</span> <span>→</span></button>
       <div class="medallion"><div class="cut float" style="position:relative;width:150px;--r:-4deg"><img src="cut/roka.png" alt=""></div><p>"you have all of it bb"<b>Shradha · 13 Jan 2026 · 8:06 PM · entered as evidence for the defence</b></p></div>
     </div>
     <table class="ledger reveal d1" id="matter">
