@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ShrAnanigans — Annual Report FY25–26</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;1,9..144,300;1,9..144,600&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Caveat:wght@500;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,600;1,6..96,400;1,6..96,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F4EEE3;--paper2:#EBE3D3;--line:#D9CFBC;--ink:#1B2130;--ink2:#4A5062;--mute:#8B8E98;
+  --red:#C0432C;--blue:#5B86BE;--blue2:#A9C4E4;--gold:#C9A24C;--hl:#F6DF7A;
+  --serif:'Fraunces',Georgia,serif;--sans:'Instrument Sans',system-ui,sans-serif;--mono:'IBM Plex Mono',ui-monospace,monospace;--hand:'Caveat',cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:50;opacity:.35;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}
+.mono{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink2)}
+.hand{font-family:var(--hand);font-size:1.5rem;color:var(--red);line-height:1.15}
+h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.01em;line-height:1}
+h2{font-size:clamp(2.2rem,5vw,3.6rem);margin:.3em 0 .5em}
+h2 em{font-style:italic;font-weight:300}
+p.lede{font-size:clamp(1.05rem,1.6vw,1.3rem);color:var(--ink2);max-width:52ch}
+.rule{border:0;border-top:1px solid var(--line);margin:0}
+.fig{display:flex;justify-content:space-between;gap:12px;align-items:baseline;border-top:2px solid var(--ink);padding-top:10px;margin-bottom:28px}
+.fig .mono{color:var(--ink)}
+
+/* masthead */
+.mast{position:sticky;top:0;z-index:40;background:color-mix(in oklab,var(--paper) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.mast .wrap{display:flex;justify-content:space-between;align-items:center;height:48px}
+.mast .brand{font-family:'Bodoni Moda',var(--serif);font-weight:500;font-size:1.45rem;letter-spacing:.02em;font-variation-settings:'opsz' 11}
+.mast .brand b{font-weight:700;color:var(--red);font-size:1.18em}
+.mast .brand small{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-left:10px;vertical-align:middle}
+.mast .mono{font-size:11px}
+@media(max-width:640px){.mast .right{display:none}}
+
+/* cut-outs */
+.cut{position:absolute;will-change:transform;pointer-events:none;user-select:none;-webkit-user-drag:none}
+.cut img{display:block;width:100%;height:auto;
+  filter:drop-shadow(0 22px 26px rgba(27,33,48,.28))}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-12px) rotate(calc(var(--r,0deg) + .6deg))}}
+.float img{animation:floaty 6s ease-in-out infinite}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+
+/* cover */
+.cover{position:relative;min-height:calc(100svh - 48px);display:grid;align-items:center;overflow:hidden;padding:48px 0 40px}
+.cover .grid{display:grid;grid-template-columns:1.05fr .95fr;gap:24px;align-items:center}
+.cover h1{font-size:clamp(3.4rem,9.5vw,8.6rem);line-height:.92;margin:.15em 0 .2em}
+.cover h1 i{font-style:italic;font-weight:300;color:var(--red)}
+.cover .fy{font-family:var(--serif);font-size:clamp(1.4rem,3vw,2.2rem);font-weight:300;font-style:italic;color:var(--ink2)}
+.cover .meta{margin-top:34px;display:grid;gap:6px;max-width:42ch}
+.cover .meta .mono{letter-spacing:.16em}
+.cover .stage{position:relative;height:min(78vh,720px)}
+.cover .stage .cut{width:min(78%,520px);left:50%;top:50%;transform:translate(-50%,-50%);--r:1.5deg}
+.cover .stage .cut.main{z-index:2}
+.cover .stage .ring{position:absolute;right:4%;top:10%;width:38%;--r:-6deg;z-index:3}
+.cover .note{position:absolute;left:4%;bottom:6%;max-width:220px;transform:rotate(-5deg)}
+.cover .note svg{position:absolute;right:-70px;top:-10px;width:80px;color:var(--red)}
+.stamp{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--red);border:1.5px solid var(--red);padding:6px 10px;border-radius:3px;transform:rotate(-3deg);opacity:.85}
+.scrollhint{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);color:var(--mute)}
+@keyframes nudge{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,6px)}}
+.scrollhint{animation:nudge 2s ease-in-out infinite}
+@media(max-width:800px){.cover{min-height:0;padding:28px 0 0}.cover .grid{grid-template-columns:1fr;gap:8px}.cover h1{font-size:clamp(3.4rem,17vw,5.4rem)}.cover .meta{margin-top:22px}
+.cover .stage{height:min(50svh,460px);margin-top:6px}.cover .stage .cut{width:min(92%,420px);left:50%;top:auto;bottom:0;transform:translateX(-50%)}
+.cover .note{left:0;top:6%;bottom:auto;max-width:200px;font-size:1.35rem}.cover .note svg{right:-54px;top:16px;width:60px}.scrollhint{display:none}}
+
+/* sections */
+section.block{padding:clamp(64px,9vw,120px) 0;position:relative}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,72px);align-items:center}
+@media(max-width:800px){.two{grid-template-columns:1fr}}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);border-top:1px solid var(--ink);border-left:1px solid var(--line)}
+.kpi{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:26px 22px 22px;position:relative;background:var(--paper)}
+.kpi .n{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,4.2vw,3.8rem);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+.kpi .n small{font-size:.45em;color:var(--ink2);margin-left:.1em}
+.kpi .l{margin-top:10px}
+.kpi .s{margin-top:8px;font-size:.92rem;color:var(--ink2);line-height:1.4}
+@media(max-width:1000px){.kpis{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.kpis{grid-template-columns:repeat(2,1fr)}.kpi{padding:20px 16px}.kpi:last-child{grid-column:span 2}}
+
+/* bars */
+.bars{display:grid;gap:18px}
+.bar{display:grid;grid-template-columns:92px 1fr 80px;gap:14px;align-items:center}
+.bar .who{font-family:var(--serif);font-size:1.25rem;font-style:italic}
+.bar .track{height:22px;background:var(--paper2);position:relative;border-radius:2px;overflow:hidden}
+.bar .fill{position:absolute;inset:0;width:var(--w);transform-origin:left;transform:scaleX(0);transition:transform 1.2s cubic-bezier(.2,.7,.2,1);border-radius:2px}
+.in .bar .fill{transform:scaleX(1)}
+.bar.a .fill{background:var(--red)}.bar.s .fill{background:var(--blue)}
+.bar .v{font-family:var(--mono);font-size:13px;text-align:right;font-variant-numeric:tabular-nums}
+.callout{border-left:3px solid var(--gold);padding:6px 0 6px 18px;font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.3;color:var(--ink)}
+.callout b{font-style:normal;font-weight:600}
+.foot{font-size:.88rem;color:var(--mute);margin-top:18px}
+
+/* bubbles scene */
+.scene{position:relative;min-height:520px}
+.scene .cut{width:min(58%,360px);left:10%;bottom:0;--r:-2deg}
+.bub{position:absolute;background:#fff;border:1px solid var(--line);border-radius:18px;padding:8px 14px;font-weight:500;box-shadow:0 8px 18px rgba(27,33,48,.08);opacity:0;transform:translateY(8px) scale(.96);transition:.45s cubic-bezier(.2,.7,.2,1);font-size:1rem;white-space:nowrap}
+.bub.a{background:var(--ink);color:#fff;border-color:var(--ink)}
+.bub.s{background:#fff}
+.in .bub{opacity:1;transform:none}
+.in .bub:nth-child(2){transition-delay:.2s}.in .bub:nth-child(3){transition-delay:.7s}.in .bub:nth-child(4){transition-delay:1.2s}.in .bub:nth-child(5){transition-delay:1.7s}.in .bub:nth-child(6){transition-delay:2.9s}
+@media(max-width:800px){.scene{min-height:400px}.scene .cut{left:2%}}
+
+/* clock */
+.clock{display:grid;grid-template-columns:repeat(24,1fr);gap:3px;align-items:end;height:160px;border-bottom:1px solid var(--ink);padding-bottom:0}
+.clock i{display:block;background:var(--paper2);height:calc(var(--h) * 1%);transform-origin:bottom;transform:scaleY(0);transition:transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i) * 25ms);border-radius:2px 2px 0 0}
+.clock i.am{background:var(--red)}.clock i.pm{background:var(--blue)}
+.in .clock i{transform:scaleY(1)}
+.clock-l{display:flex;justify-content:space-between;margin-top:8px}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:28px}
+.split .n{font-family:var(--serif);font-size:2.6rem;font-weight:300;line-height:1}
+.split .n.r{color:var(--red)}.split .n.b{color:var(--blue)}
+.pin{position:absolute;width:min(34%,250px);--r:3deg}
+
+/* cards */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card{background:#fff;border:1px solid var(--line);padding:28px;border-radius:4px;position:relative;overflow:hidden}
+.card h3{font-size:1.8rem;margin:6px 0 14px}
+.card .big{font-family:var(--serif);font-size:3.2rem;font-weight:300;line-height:1}
+.card .vs{display:grid;grid-template-columns:1fr auto 1fr;align-items:end;gap:12px;margin:10px 0 14px}
+.card .vs .who{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute)}
+.card .vs .mid{font-family:var(--serif);font-style:italic;color:var(--mute);padding-bottom:8px}
+.card .r{color:var(--red)}.card .b{color:var(--blue)}
+.card p{color:var(--ink2);font-size:.98rem}
+@keyframes laugh{0%{transform:translateY(0) scale(.6);opacity:0}15%{opacity:1}100%{transform:translateY(-140px) scale(1.1) rotate(12deg);opacity:0}}
+.emo{position:absolute;right:26px;bottom:20px;font-size:28px;pointer-events:none}
+.emo span{position:absolute;right:0;bottom:0;animation:laugh 2.6s ease-out infinite;animation-play-state:paused}
+.in .emo span{animation-play-state:running}
+.emo span:nth-child(2){animation-delay:.8s;right:22px}.emo span:nth-child(3){animation-delay:1.6s;right:-14px}
+.haha{font-family:var(--hand);font-size:2rem;color:var(--blue);position:absolute;right:26px;bottom:18px;overflow:hidden;white-space:nowrap;width:0}
+.in .haha{animation:type 3s steps(24) .4s forwards}
+@keyframes type{to{width:220px}}
+@media(max-width:800px){.cards{grid-template-columns:1fr}}
+
+/* names table */
+table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+th{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--ink2);text-align:left;padding:0 0 10px;border-bottom:1px solid var(--ink)}
+td{padding:12px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td.nm{font-family:var(--serif);font-size:1.35rem;font-style:italic}
+td.num{text-align:right;font-family:var(--mono);font-size:14px}
+td.note{color:var(--ink2);font-size:.92rem}
+th.num{text-align:right}
+@media(max-width:640px){td.note,th.note{display:none}}
+
+/* timeline */
+.tl{position:relative;height:420vh}
+.tl .sticky{position:sticky;top:48px;height:calc(100svh - 48px);overflow:hidden}
+.tl .road{position:absolute;left:0;right:0;bottom:18%;border-top:1px dashed var(--ink2);opacity:.5}
+.tl .track{position:absolute;left:0;top:0;height:100%;display:flex;align-items:center;gap:clamp(40px,8vw,120px);padding-left:50vw;will-change:transform;transform:translateX(calc(var(--p,0) * var(--len,-3000px)))}
+.tl .stop{flex:0 0 auto;width:min(78vw,340px);background:#fff;border:1px solid var(--line);padding:22px 24px;border-radius:4px;box-shadow:0 14px 30px rgba(27,33,48,.08);position:relative;transform:translateY(-8vh)}
+.tl .stop .d{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.tl .stop h3{font-size:1.55rem;margin:8px 0 8px}
+.tl .stop p{color:var(--ink2);font-size:.95rem}
+.tl .stop .q{margin-top:10px;font-family:var(--serif);font-style:italic;font-size:1.05rem;line-height:1.35}
+.tl .stop.big{border-color:var(--red);box-shadow:0 0 0 4px var(--paper),0 0 0 5px var(--red)}
+.tl .walker{position:absolute;left:6%;bottom:10%;width:min(36vw,230px);z-index:3}
+.tl .walker img{display:block;width:100%;filter:drop-shadow(0 16px 20px rgba(27,33,48,.3))}
+@keyframes walk{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-7px) rotate(1.5deg)}}
+.tl.moving .walker img{animation:walk .55s ease-in-out infinite}
+.tl .walker .sw{position:absolute;inset:0;opacity:0;transition:opacity .5s}
+.tl .walker .sw.on{opacity:1}
+.tl .walker .base{transition:opacity .5s}
+.tl .head{position:absolute;left:0;right:0;top:22px}
+.tl .prog{position:absolute;left:0;right:0;bottom:0;height:3px;background:var(--line)}
+.tl .prog i{display:block;height:100%;background:var(--red);width:calc(var(--p,0) * 100%)}
+@media(max-width:800px){.tl .track{padding-left:14vw}.tl .stop{transform:translateY(-16vh);padding:18px 20px}.tl .walker{width:min(42vw,200px);left:4%}.tl .head .mono:last-child{display:none}}
+
+/* outlook */
+.outlook{background:var(--ink);color:var(--paper);padding:clamp(80px,12vw,160px) 0;position:relative;overflow:hidden}
+.outlook .mono{color:var(--blue2)}
+.outlook h2{font-size:clamp(2.6rem,7vw,5.6rem);max-width:14ch}
+.outlook h2 i{font-style:italic;color:var(--hl)}
+.outlook .guid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:48px;border-top:1px solid rgba(255,255,255,.2);padding-top:28px}
+.outlook .guid .n{font-family:var(--serif);font-size:1.9rem;font-weight:300}
+.outlook .guid .mono{margin-bottom:6px}
+.outlook .signoff{margin-top:64px;font-family:var(--serif);font-style:italic;font-size:1.5rem;max-width:34ch;line-height:1.35}
+.outlook .signoff b{font-style:normal;display:block;margin-top:14px;font-family:var(--hand);font-size:2.1rem;color:var(--hl);font-weight:500}
+.outlook .cut{right:0;bottom:-2%;width:min(40%,480px);--r:-2deg;opacity:.96}
+@media(max-width:800px){.outlook .guid{grid-template-columns:1fr}.outlook .win{margin:24px 0 0}}
+
+footer{padding:48px 0 80px;color:var(--ink2);font-size:.9rem}
+footer ol{padding-left:1.2em;display:grid;gap:6px;max-width:70ch}
+.static .reveal,.static .scene,.static .cards{opacity:1!important;transform:none!important;transition:none!important}.static .bub{opacity:1;transform:none}.static .fill{transform:scaleX(1)}.static .clock i{transform:scaleY(1)}
+
+/* v2 additions */
+.board{margin-top:30px;display:grid;gap:4px;max-width:46ch}
+.board .row{display:grid;grid-template-columns:96px 1fr;gap:14px;padding:8px 0;border-top:1px solid var(--line);font-size:.95rem}
+.board .row .mono{padding-top:3px}
+.board .row b{font-weight:600}
+.board .row span{color:var(--ink2);display:block;font-size:.88rem}
+.tagline{font-family:var(--serif);font-style:italic;font-size:1.15rem;color:var(--ink2);margin-top:14px}
+.letter{max-width:62ch;font-family:var(--serif);font-size:clamp(1.15rem,1.5vw,1.35rem);line-height:1.55;font-weight:300}
+.letter p{margin:0 0 1.1em}
+.letter .sal{font-style:italic}
+.letter .sig{margin-top:1.6em;font-family:var(--hand);font-size:2rem;color:var(--red);line-height:1.1}
+.letter .sig small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);margin-top:8px}
+.kpis.six{grid-template-columns:repeat(3,1fr)}
+.kpi .n.sm{font-size:clamp(1.9rem,3vw,2.8rem)}
+.kpi .n .vs{font-family:var(--serif);font-style:italic;font-size:.5em;color:var(--mute);margin:0 .15em}
+@media(max-width:640px){.kpis.six{grid-template-columns:repeat(2,1fr)}.kpis.six .kpi:last-child{grid-column:span 2}}
+.ledger{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px}
+.ledger th{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);font-weight:500;text-align:left;padding:0 10px 10px 0;border-bottom:1px solid var(--ink)}
+.ledger td{padding:11px 10px 11px 0;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.45}
+.ledger td.r,.ledger th.r{text-align:right;white-space:nowrap}
+.ledger td i{font-family:var(--serif);font-size:1.02rem;color:var(--ink)}
+.ledger tr.new td{background:var(--hl);animation:flash 1.2s ease-out}
+@keyframes flash{from{background:#fff}}
+.ruling{margin-top:26px;font-family:var(--serif);font-style:italic;font-size:1.35rem;line-height:1.35}
+.btn{display:inline-flex;align-items:center;gap:10px;margin-top:22px;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;padding:12px 18px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;border-radius:3px;transition:.2s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn[disabled]{border-color:var(--red);color:var(--red);cursor:default;background:transparent}
+.sheet{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border-top:2px solid var(--ink)}
+.sheet>div{padding:22px 22px 26px 0;border-right:1px solid var(--line);margin-right:22px}
+.sheet>div:last-child{border:0;margin:0}
+.sheet h3{font-size:1.5rem;margin:0 0 14px}
+.sheet ul{list-style:none;display:grid;gap:10px}
+.sheet li{display:grid;grid-template-columns:1fr auto;gap:12px;font-size:.95rem;border-bottom:1px dotted var(--line);padding-bottom:8px}
+.sheet li .mono{font-size:11px;color:var(--mute);white-space:nowrap;padding-top:4px}
+.sheet .eq{font-family:var(--serif);font-style:italic;font-size:1.25rem;line-height:1.35}
+.sheet .eq b{display:block;font-style:normal;font-family:var(--serif);font-size:3rem;font-weight:300;margin-top:8px}
+.audit{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--mute);margin-top:18px}
+@media(max-width:800px){.sheet{grid-template-columns:1fr}.sheet>div{border-right:0;border-bottom:1px solid var(--line);margin:0;padding:22px 0}}
+.gloss{display:grid;grid-template-columns:1fr 1fr;gap:0 48px}
+.gloss dl{margin:0}
+.gloss dt{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--red);padding-top:18px;border-top:1px solid var(--line)}
+.gloss dd{margin:6px 0 18px;font-size:1rem;color:var(--ink2)}
+.gloss dd i{font-family:var(--serif);color:var(--ink);font-size:1.08rem}
+.gloss dd .ex{display:block;margin-top:6px;font-family:var(--serif);font-style:italic;color:var(--ink);font-size:1.05rem}
+@media(max-width:800px){.gloss{grid-template-columns:1fr}.letter-art{display:none}.board{margin-top:18px}.board .row{grid-template-columns:82px 1fr;padding:6px 0;font-size:.9rem}.board .row div span{display:none}.cover .note svg{display:none}.cover .tagline{font-size:1.05rem;margin-top:8px}}
+.chart{width:100%;height:auto;display:block;overflow:visible}
+.chart text{font-family:var(--mono);font-size:11px;fill:var(--ink2)}
+.chart .lbl{font-family:var(--serif);font-style:italic;font-size:13px;fill:var(--ink)}
+.chart path{fill:none;stroke-width:2.2;stroke-linejoin:round;stroke-linecap:round}
+.notes{font-family:var(--mono);font-size:12.5px;line-height:1.7;color:var(--ink2);display:grid;gap:2px;margin-top:18px}
+.notes span{color:var(--ink)}
+.sealed{position:relative;border:1.5px solid var(--ink);border-radius:4px;padding:clamp(28px,5vw,56px);overflow:hidden;background:#fff}
+.sealed .gate{text-align:center}
+.sealed .seal{width:120px;height:120px;border-radius:50%;border:2px solid var(--red);color:var(--red);display:grid;place-items:center;margin:18px auto 0;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;background:transparent;transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .5s;position:relative}
+.sealed .seal::after{content:"";position:absolute;inset:6px;border-radius:50%;border:1px dashed var(--red)}
+.sealed .seal:hover{transform:rotate(-6deg) scale(1.04)}
+.sealed .body{max-height:0;opacity:0;transition:max-height 1.2s cubic-bezier(.2,.7,.2,1),opacity .9s .3s;overflow:hidden}
+.sealed.open .gate{display:none}
+.sealed.open .body{max-height:3000px;opacity:1}
+.exhibit{display:grid;grid-template-columns:210px 1fr;gap:20px;padding:20px 0;border-top:1px solid var(--line)}
+.exhibit:first-child{border-top:0}
+.exhibit .mono{padding-top:6px}
+.exhibit q{quotes:none;font-family:var(--serif);font-size:clamp(1.2rem,2vw,1.6rem);line-height:1.3;font-weight:300;display:block}
+.exhibit q em{font-style:italic;color:var(--red)}
+.exhibit .by{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+@media(max-width:640px){.exhibit{grid-template-columns:1fr;gap:6px}}
+.pullq{font-family:var(--serif);font-weight:300;font-size:clamp(1.5rem,3.2vw,2.4rem);line-height:1.25;max-width:26ch;margin-top:56px}
+.pullq b{display:block;font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue2);margin-top:18px}
+.count{font-family:var(--serif);font-size:clamp(3.5rem,9vw,7rem);font-weight:300;line-height:1;color:var(--hl);letter-spacing:-.02em}
+.count small{font-size:.3em;color:var(--paper);opacity:.7;letter-spacing:0;margin-left:.2em}
+.final{margin-top:64px;border-top:1px solid rgba(255,255,255,.2);padding-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:end}
+.final h3{font-size:clamp(2rem,4.5vw,3.2rem);max-width:12ch}
+.final .last{font-family:var(--serif);font-style:italic;font-size:1.25rem;line-height:1.4;color:var(--paper)}
+.final .last .mono{color:var(--blue2);margin-bottom:8px}
+@media(max-width:800px){.final{grid-template-columns:1fr}}
+.stop .pq{margin-top:10px;font-family:var(--serif);font-weight:300;font-size:1.02rem;line-height:1.4;color:var(--ink)}
+
+/* editorial photo windows */
+.win{position:relative;display:block;overflow:hidden;background:var(--paper2);box-shadow:0 30px 50px -20px rgba(27,33,48,.35)}
+.win img{display:block;width:100%;height:100%;object-fit:cover}
+.win.plate{border-radius:3px}
+.win.plate::before{content:"";position:absolute;inset:10px;border:1px solid rgba(255,253,248,.7);pointer-events:none;z-index:1;border-radius:1px}
+.win.round{border-radius:50%}
+.win.soft{border-radius:14px}
+.win::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:inset 0 0 0 1px rgba(27,33,48,.25)}
+.cap{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-top:12px;display:flex;justify-content:space-between;gap:12px;white-space:nowrap}
+@keyframes drift{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.drift{animation:drift 7s ease-in-out infinite}
+.cover .stage .win{width:min(80%,500px);aspect-ratio:4/5;margin:0 0 0 auto}
+.cover .stage .note{left:0;bottom:8%;max-width:210px}
+.cover .stage .note svg{right:-64px;top:-2px}
+@media(max-width:800px){.cover .stage{height:auto;margin-top:14px}.cover .stage .win{width:min(88%,380px)}.cover .stage .note{position:relative;margin:14px 0 0;transform:rotate(-3deg);max-width:none;top:auto}}
+.letter-art .win{width:min(82%,380px);aspect-ratio:4/5;margin-left:auto}
+.medallion{display:grid;grid-template-columns:150px 1fr;gap:22px;align-items:center;margin-top:40px;padding-top:22px;border-top:1px solid var(--line)}
+.medallion .win{width:140px;aspect-ratio:1}
+.medallion p{font-family:var(--serif);font-style:italic;font-size:1.15rem;line-height:1.35;color:var(--ink)}
+.medallion p b{display:block;font-style:normal;font-family:var(--mono);font-weight:400;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:8px}
+.outlook .win{width:min(82%,380px);aspect-ratio:4/5;margin-left:auto}
+.outlook .win::after{box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+.outlook .cap{color:var(--blue2)}
+@media(prefers-reduced-motion:reduce){.drift{animation:none}}
+
+/* gate */
+#gate{position:fixed;inset:0;z-index:100;background:var(--paper);display:grid;grid-template-rows:auto 1fr auto;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+#gate.open{opacity:0;transform:translateY(-3%);pointer-events:none}
+#gate::before{content:"";position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .25 0 0 0 0 .2 0 0 0 .18 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");opacity:.35;mix-blend-mode:multiply;pointer-events:none}
+.gmast{border-bottom:1px solid var(--line)}
+.gmast .wrap{display:flex;justify-content:space-between;align-items:center;height:48px}
+.gmast .brand{font-family:'Bodoni Moda',var(--serif);font-weight:500;font-size:1.45rem;letter-spacing:.02em;font-variation-settings:'opsz' 11}
+.gmast .brand b{font-weight:700;color:var(--red);font-size:1.18em}
+.gmast .brand small{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute);margin-left:10px;vertical-align:middle}
+.gmast .mono{font-size:11px}
+@media(max-width:640px){.gmast .right{display:none}}
+.gcard{position:relative;width:min(560px,calc(100% - 40px));margin:0 auto;text-align:center;align-self:center;padding:24px 0}
+.gcard h1{font-size:clamp(3.6rem,11vw,7rem);line-height:.92;margin:.25em 0 .15em}
+.gcard h1 i{font-style:italic;color:var(--red)}
+.gcard .fy{font-family:var(--serif);font-size:clamp(1.2rem,2.6vw,1.7rem);font-weight:300;font-style:italic;color:var(--ink2)}
+.gmeta{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-top:18px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;max-width:420px;margin-left:auto;margin-right:auto}
+.gform{margin-top:36px;display:grid;gap:12px;justify-items:center}
+.gform input{font-family:var(--mono);font-size:1.6rem;letter-spacing:.5em;text-indent:.5em;text-align:center;width:200px;padding:12px 0;border:0;border-bottom:2px solid var(--ink);background:transparent;color:var(--ink);outline:none;border-radius:0}
+.gform input::placeholder{color:var(--line);letter-spacing:.5em}
+.gform input:focus{border-color:var(--red)}
+.gform .hint{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2)}
+.gform .err{font-family:var(--hand);font-size:1.3rem;color:var(--red);min-height:1.6em;transition:opacity .3s;opacity:0}
+.gform .err.show{opacity:1}
+.gform .btn{margin-top:6px}
+@keyframes shake{10%,90%{transform:translateX(-2px)}20%,80%{transform:translateX(4px)}30%,50%,70%{transform:translateX(-6px)}40%,60%{transform:translateX(6px)}}
+.gform.shake input{animation:shake .5s}
+.gfoot{text-align:center;padding:18px 24px 28px;font-size:10.5px;color:var(--mute)}
+body.locked{overflow:hidden}
+
+@media(prefers-reduced-motion:reduce){.float,.scrollhint,.tl.moving .walker img,.emo span{animation:none!important}.reveal{opacity:1;transform:none;transition:none}}
+</style>
+</head>
+<body>
+
+<div id="gate" role="dialog" aria-label="Restricted document">
+  <div class="gmast"><div class="wrap"><div class="brand"><b>S</b>hr<b>A</b>nanigans<small>Inc.</small></div><div class="mono right">Annual Report · FY25–26</div><div class="mono">Confidential</div></div></div>
+  <div class="gcard">
+    <span class="stamp">Confidential · for the fiancée's eyes only</span>
+    <h1>Annual<br><i>Report</i></h1>
+    <div class="fy">FY25–26 · the first one</div>
+    <div class="gmeta"><span>ShrAnanigans Inc.</span><span>24 Aug 2025 — 24 Aug 2026</span></div>
+    <form class="gform" id="gform" autocomplete="off">
+      <label class="hint" for="pw">Enter the day ShrAnanigans was incorporated</label>
+      <input id="pw" type="text" inputmode="numeric" placeholder="••" maxlength="12" aria-label="Password" autofocus>
+      <div class="err" id="gerr">galat. try again, buzzword queen 🙄</div>
+      <button class="btn" type="submit">Open the report →</button>
+    </form>
+  </div>
+  <div class="gfoot mono">Prepared by the Chief Vibes Officer · Reviewed, reluctantly, by the Chief Feelings Officer</div>
+</div>
+<header class="mast"><div class="wrap">
+  <div class="brand"><b>S</b>hr<b>A</b>nanigans<small>Inc.</small></div>
+  <div class="mono right">Annual Report · FY25–26</div>
+  <div class="mono">Confidential</div>
+</div></header>
+
+<!-- COVER -->
+<section class="cover"><div class="wrap grid">
+  <div>
+    <div class="reveal"><span class="stamp">Confidential · for the fiancée's eyes only</span></div>
+    <h1 class="reveal d1">Annual<br><i>Report</i></h1>
+    <div class="fy reveal d2">FY25–26 · the first one</div>
+    <div class="tagline reveal d2">Founded at a red light, on the cue of a song.</div>
+    <div class="board reveal d3">
+      <div class="mono" style="margin-bottom:6px">Board of Directors</div>
+      <div class="row"><span class="mono">Anant</span><div><b>Co-founder &amp; Chief Vibes Officer</b><span>Also: logistics, alarm clocks, paneer procurement.</span></div></div>
+      <div class="row"><span class="mono">Shradha ✨</span><div><b>Co-founder &amp; Chief Feelings Officer</b><span>Also: brand, optics, hashtags, late arrivals.</span></div></div>
+      <div class="row"><span class="mono">Period</span><div><b>24 Aug 2025 — 24 Aug 2026</b><span>435 days. Contact on 433 of them.</span></div></div>
+    </div>
+  </div>
+  <div class="stage reveal d2">
+    <div class="cut main float"><img src="cut/hero.png" alt="Anant and Shradha on the beach"></div>
+    <div class="note hand">abeyy, annual report?? <br>ye kya corporate lingo 🙄
+      <svg viewBox="0 0 80 60" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 50 C 30 40, 50 30, 74 8"/><path d="M62 8 l12 0 l-2 12"/></svg>
+    </div>
+  </div>
+</div>
+<div class="scrollhint mono">scroll ↓</div>
+</section>
+
+<!-- LETTER -->
+<section class="block" style="padding-bottom:0"><div class="wrap">
+  <div class="fig"><span class="mono">01 · Letter from the Co-founder</span><span class="mono">Unaudited</span></div>
+  <div class="two" style="align-items:start">
+  <!-- EDIT ME: Anant's letter. Everything inside #letter is yours to rewrite. -->
+  <div class="letter reveal" id="letter">
+    <p class="sal">Dear Shareholder (singular),</p>
+    <p>One year ago today, at a red light, on the cue of a song only god might have planned, you said yes to being my baby. The company was incorporated on the spot. No paperwork — you kissed me instead.</p>
+    <p>This report covers FY25–26. The numbers are real, all 59,372 of them. The feelings are mine.</p>
+    <p>In the period under review we told two sets of parents, took the company offsite to Thailand, Hyderabad, Goa and Mumbai — one of which ended with a ring — expensed an undisclosed number of Yeti momos, got rokafied in May, and booked a palace for January. Headcount remains two.</p>
+    <p>Hand on heart babe, it has been the best year of my life, and you are the reason. Everything else is a footnote.</p>
+    <p>Love you more. (See Matter No. 1. It's audited.)</p>
+    <div class="sig">— your baby<small>Co-founder &amp; Chief Vibes Officer</small></div>
+  </div>
+  <div class="reveal d1 letter-art" style="position:relative;min-height:520px;border-bottom:1px solid var(--ink)"><div class="cut float" style="right:0;bottom:0;width:min(96%,480px);--r:0deg"><img src="cut/hero2.png" alt=""></div><div class="cap" style="position:absolute;left:0;bottom:-30px;width:100%"><span>Fig. 1.1 · Goa, Apr 2026</span><span>The co-founders</span></div></div>
+  </div>
+</div></section>
+
+<!-- HIGHLIGHTS -->
+<section class="block"><div class="wrap">
+  <div class="fig"><span class="mono">02 · Key performance indicators</span><span class="mono">Audited against 59,372 primary source documents</span></div>
+  <h2 class="reveal">Key <em>performance</em> indicators</h2>
+  <p class="lede reveal d1">Management is pleased to report that at no point in the year did either party run out of things to say.</p>
+  <div class="kpis" style="margin-top:40px">
+    <div class="kpi reveal"><div class="n" data-count="59372">0</div><div class="l">messages</div><div class="s">He talks a lot. She lets him.</div></div>
+    <div class="kpi reveal d1"><div class="n" data-count="433"><span>0</span><small>/435</small></div><div class="l">days in touch</div><div class="s">The two missing days remain under investigation.</div></div>
+    <div class="kpi reveal d2"><div class="n" data-count="246">0</div><div class="l">day streak</div><div class="s">Longest unbroken run. No "my phone died" survived it.</div></div>
+    <div class="kpi reveal d3"><div class="n" data-count="195">0<small>hrs</small></div><div class="l">on calls</div><div class="s">Eight full days of talking. Peak hour: 11 PM.</div></div>
+    <div class="kpi reveal d4"><div class="n" data-count="498">0</div><div class="l">"I love you"s</div><div class="s">25 spellings. He says it more. She said it first.</div></div>
+  </div>
+  <div class="kpis six" style="margin-top:32px">
+    <div class="kpi reveal"><div class="n sm">27<small>s</small><span class="vs">vs</span>37<small>s</small></div><div class="l">median reply time</div><div class="s">Him, her. Nobody has ever been left on read.</div></div>
+    <div class="kpi reveal d1"><div class="n sm">85<span class="vs">vs</span>33</div><div class="l">"love you more"</div><div class="s">He never concedes. See Matter No. 1.</div></div>
+    <div class="kpi reveal d2"><div class="n sm">❤️ 316<span class="vs">·</span>♥ 1,020</div><div class="l">hearts, hers · his</div><div class="s">Same heart, different font. Neither has ever used the other's.</div></div>
+    <div class="kpi reveal d3"><div class="n sm" data-count="3307">0</div><div class="l">photos exchanged</div><div class="s">2,054 his, 1,253 hers. The trade deficit is ongoing.</div></div>
+    <div class="kpi reveal d4"><div class="n sm">68<span class="vs">vs</span>7</div><div class="l">"gayab" allegations</div><div class="s">Filed by him. She was, in fairness, mostly asleep.</div></div>
+    <div class="kpi reveal d4"><div class="n sm">21</div><div class="l">messages in a row</div><div class="s">His longest unanswered monologue. 11 Jul 2025, 10:25 PM.</div></div>
+  </div>
+</div></section>
+
+<!-- SHARE OF VOICE -->
+<section class="block"><div class="wrap">
+  <div class="fig"><span class="mono">03 · Share of voice</span><span class="mono">Fig. 2.1</span></div>
+  <div class="two">
+    <div>
+      <h2 class="reveal">He talks in <em>bursts.</em><br>She answers in <em>one word.</em></h2>
+      <div class="bars reveal d1">
+        <div class="bar a"><span class="who">Anant</span><div class="track"><div class="fill" style="--w:100%"></div></div><span class="v">33,140</span></div>
+        <div class="bar s"><span class="who">Shradha</span><div class="track"><div class="fill" style="--w:79%"></div></div><span class="v">26,232</span></div>
+      </div>
+      <div class="foot reveal d2">Messages sent. By words it's lopsided further: 169k vs 103k. Anant's longest monologue: 21 messages in a row (11 Jul 2025, 10:25 PM). Shradha's most-used opener: <i>helluu</i>, 144 times.</div>
+      <div class="callout reveal d3" style="margin-top:28px">Median reply time: <b>27 seconds</b> for him, <b>37</b> for her. Both of you are, clinically, a problem.</div>
+    </div>
+    <div class="scene reveal d1">
+      <div class="cut float"><img src="cut/mirror.png" alt="Mirror selfie"></div>
+      <div class="bub a" style="left:52%;top:6%">Babe</div>
+      <div class="bub a" style="left:58%;top:18%">Bolo</div>
+      <div class="bub a" style="left:54%;top:30%">Batao</div>
+      <div class="bub a" style="left:62%;top:42%">Tell?</div>
+      <div class="bub s" style="left:70%;top:60%">hellu</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CLOCK -->
+<section class="block"><div class="wrap">
+  <div class="fig"><span class="mono">04 · Hours of operation</span><span class="mono">Fig. 3.1</span></div>
+  <div class="two">
+    <div class="reveal">
+      <h2>Good mornings are <em>his.</em><br>Goodnights are <em>hers.</em></h2>
+      <p class="lede">Messages by hour of day, all year. Red is morning, blue is night. The dip at 1 PM is lunch. The wall at midnight is the two of you.</p>
+    </div>
+    <div class="reveal d1">
+      <div class="clock" id="clock"></div>
+      <div class="clock-l mono"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>11 PM</span></div>
+      <div class="split">
+        <div><div class="n r">318</div><div class="mono">mornings Anant said it first</div><div class="foot" style="margin-top:6px">vs 82. Median 8:48 AM. Earliest: 4:09 AM.</div></div>
+        <div><div class="n b">173</div><div class="mono">nights Shradha said it first</div><div class="foot" style="margin-top:6px">vs 81. Sunrise, for her, is officially 10 AM.</div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- CHARACTER CARDS -->
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="fig"><span class="mono">05 · Behavioural audit</span><span class="mono">Fig. 4.1–4.2</span></div>
+  <div class="cards">
+    <div class="card reveal">
+      <div class="mono">Laugh index</div>
+      <h3>She laughs in letters.<br>He laughs in emoji.</h3>
+      <div class="vs"><div><div class="who">Shradha · haha</div><div class="big b">1,088</div></div><div class="mid">vs</div><div><div class="who">Anant · 😂</div><div class="big r">1,731</div></div></div>
+      <p>Longest single laugh on record: 56 characters of "ha", Anant, 2 Jul 2025, 12:59 PM. Shradha has used 🤣 seven times. Anant has never once.</p>
+      <div class="emo"><span>😂</span><span>😂</span><span>😂</span></div>
+    </div>
+    <div class="card reveal d1">
+      <div class="mono">Revisions &amp; retractions</div>
+      <h3>She second-guesses.<br>He refines.</h3>
+      <div class="vs"><div><div class="who">Shradha · deleted</div><div class="big b">97</div></div><div class="mid">vs</div><div><div class="who">Anant · edited</div><div class="big r">561</div></div></div>
+      <p>He deleted 15 messages all year. She was caught every single time: <i>"Kya delete karre ho bb?"</i> — asked 30 times, answered never.</p>
+      <div class="haha">hahahahahahahahahaha</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- BRAND EVOLUTION -->
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="fig"><span class="mono">06 · Brand evolution</span><span class="mono">Fig. 6.1 · pet names per month</span></div>
+  <div class="two" style="align-items:start">
+    <div class="reveal">
+      <h2>Registered <em>trade names</em></h2>
+      <p class="lede">What he calls her, what she calls him, month by month. Some lines are retired. Some launched this summer. One of them is a cow.</p>
+      <div class="notes">
+        <div><span>Shrubs</span> — discontinued Oct 2025.</div>
+        <div><span>Cutie</span> — peak Nov 2025, now in maintenance mode.</div>
+        <div><span>Babe</span> — core product. 2,210 units shipped.</div>
+        <div><span>Baby girl</span> — launched Dec 2025.</div>
+        <div><span>Annie Nannie</span> — steady state. Twice in a row = something's up.</div>
+        <div><span>Dudu</span> — the summer 2026 product line.</div>
+        <div><span>Seedha-sudhra cow 🐮</span> — self-declared, 4 Nov 2025. Counterparty: <em>hot sexy lomdi.</em></div>
+      </div>
+      <div style="position:relative;height:380px;margin-top:36px"><div class="cut float pin" style="left:6%;top:0;width:min(64%,270px);--r:-3deg"><img src="cut/thai.png" alt="Thailand"></div></div>
+    </div>
+    <div class="reveal d1">
+      <div class="mono" style="margin-bottom:10px">His names for her</div>
+      <svg class="chart" id="ch1" viewBox="0 0 560 230"></svg>
+      <div class="mono" style="margin:34px 0 10px">Her names for him</div>
+      <svg class="chart" id="ch2" viewBox="0 0 560 200"></svg>
+    </div>
+  </div>
+</div></section>
+
+<!-- MATTER NO. 1 -->
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="fig"><span class="mono">07 · Matter No. 1</span><span class="mono">Pending</span></div>
+  <div class="two" style="align-items:start">
+    <div class="reveal">
+      <h2>The <em>"I love you more"</em> dispute</h2>
+      <p class="lede">Filed by both parties, repeatedly, since 27 September 2025. Neither side has produced evidence. Both keep filing.</p>
+      <div class="ruling">Ruling: unresolved. Referred to FY27. The respondent may file a counter-claim below.</div>
+      <button class="btn" id="claim">File counter-claim: "I love you more" <span>→</span></button>
+      <div class="medallion"><div class="cut float" style="position:relative;width:150px;--r:-4deg"><img src="cut/roka.png" alt=""></div><p>"you have all of it bb"<b>Shradha · 13 Jan 2026 · 8:06 PM · entered as evidence for the defence</b></p></div>
+    </div>
+    <table class="ledger reveal d1" id="matter">
+      <thead><tr><th>Filing</th><th>Claimant</th><th class="r">Date</th></tr></thead>
+      <tbody>
+        <tr><td><i>Love you babe! 🥹</i><br>First filing on record.</td><td>Shradha</td><td class="r">27 Sep 2025<br>09:59 AM</td></tr>
+        <tr><td><i>Nope. Can't match me.</i><br>"Aapke lower level se kaisa dikhta hai."</td><td>Anant</td><td class="r">14 Dec 2025</td></tr>
+        <tr><td><i>Chup chaap love me. Samjhe.</i><br>In response to a "you too ❤️".</td><td>Anant</td><td class="r">13 Jan 2026</td></tr>
+        <tr><td><i>love you mostestestestest</i></td><td>Shradha</td><td class="r">21 Aug 2026<br>11:32 PM</td></tr>
+        <tr><td><i>Not mostest than me</i></td><td>Anant</td><td class="r">21 Aug 2026<br>11:33 PM</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
+
+<!-- BALANCE SHEET -->
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="fig"><span class="mono">08 · Balance sheet</span><span class="mono">As at 24 Aug 2026</span></div>
+  <div class="sheet reveal">
+    <div>
+      <h3>Assets</h3>
+      <ul>
+        <li>1 oval solitaire, size 15.9–16 mm <span class="mono">self-reported, 15 Mar</span></li>
+        <li>1 explosion box, butterflies included <span class="mono">18 Dec</span></li>
+        <li>Whole Truth bars, couriered <span class="mono">recurring</span></li>
+        <li>1 orange iPhone <span class="mono">contested</span></li>
+        <li>1 claw-machine Fishie, first try <span class="mono">1 Jan</span></li>
+        <li>1 palace, Karnal <span class="mono">forward booking</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Liabilities</h3>
+      <ul>
+        <li>5 kisses owed, revised to 10 <span class="mono">22 Dec</span></li>
+        <li>Splitwise requests <span class="mono">returned to sender</span></li>
+        <li>Late good-morning penalties <span class="mono">accruing</span></li>
+        <li>Paneer: 1-meal-per-day model <span class="mono">under review</span></li>
+        <li>Photos owed under the one-way photo treaty <span class="mono">2, minimum</span></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Equity</h3>
+      <div class="eq">"Aap mere ho. Choice nahi hai aapke paas."<br>"you're stuck with me!!!"<br>"Bhagwan aisa stuck sabko kare."<b>100%</b></div>
+      <div class="audit">Auditor's note: Yeti momos are expensed, not capitalised.</div>
+    </div>
+  </div>
+</div></section>
+
+<!-- GLOSSARY -->
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="fig"><span class="mono">09 · Glossary of proprietary terms</span><span class="mono">Defined terms</span></div>
+  <div class="gloss reveal">
+    <dl>
+      <dt>GSA</dt><dd>Give Some Attention. Requires prior permission from Ms. Shradha. Used 27 times.</dd>
+      <dt>The Photo Economy</dt><dd>One-way photos are a trade deficit.<span class="ex">"Please send payment." — "How much" — "2 photos."</span></dd>
+      <dt>Show?</dt><dd>One word, one request. Answered roughly 40% of the time. <button class="btn" id="show" style="margin:10px 0 0;padding:8px 12px">Show?</button><span class="ex" id="showout"></span></dd>
+      <dt>Gayab</dt><dd>A state of Shradha. 68 allegations filed by him; 7 by her.</dd>
+      <dt>Kya delete karre ho bb?</dt><dd>The company's only compliance function. 97 incidents, 97 detections.</dd>
+      <dt>K.</dt><dd>A weapon.<span class="ex">"Ouch. Why am I getting a K 🙈"</span></dd>
+      <dt>Annie Nannie ×2</dt><dd>Escalation protocol. Twice in a row means something's up.</dd>
+    </dl>
+    <dl>
+      <dt>Cow / Lomdi</dt><dd>He is a seedha-sudhra cow. She is the lomdi. Established 4 Nov 2025.</dd>
+      <dt>Momzters / Popsters</dt><dd>The Board of Approvals.<span class="ex">"ye kya 4th standard behaviour."</span></dd>
+      <dt>Optics</dt><dd>Kaam mein bhi, ghar mein bhi, love life mein bhi. See also: fictional friend Ayushi.</dd>
+      <dt>Penalty</dt><dd>Levied for late good-mornings. <i>"Lagao penalty."</i> Accruing since 5 Jul 2026.</dd>
+      <dt>Maggi Index</dt><dd>Chef Anant's Maggi. 9.5/10, then: <i>"Bhabhi said this was best maggie ever. So maybe a 10."</i></dd>
+      <dt>TTM / SS</dt><dd>Talk To Me / Shradha Swear. Est. 21 Aug 2026, 11:27 PM.<span class="ex">"Ye kya genz lingo hai 😂😂"</span></dd>
+      <dt>Hinge</dt><dd>Does not exist. The parties met through work.</dd>
+    </dl>
+  </div>
+</div></section>
+
+<!-- RISK REGISTER -->
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="fig"><span class="mono">10 · Risk register</span><span class="mono">Table 10.1</span></div>
+  <div style="overflow-x:auto">
+  <table class="ledger reveal" style="min-width:640px">
+    <thead><tr><th>Risk</th><th>Likelihood</th><th>Impact</th><th>Mitigation</th></tr></thead>
+    <tbody>
+      <tr><td><i>Boeing</i></td><td>"Never fly"</td><td>"Apna return flight Boeing hai."</td><td>"We have to extend. 100% now."</td></tr>
+      <tr><td><i>Google Maps in Shradha's hands</i></td><td>High</td><td>Bhatak gaye, 20 Jun</td><td>"You need an adult like me."</td></tr>
+      <tr><td><i>Orange iPhone</i></td><td>Medium</td><td>"i won't talk to you if you get that"</td><td>Blue. Or grey.</td></tr>
+      <tr><td><i>Contracts with wrong names</i></td><td>Recurring</td><td>"Shardha and Aditya ki Shaadi"</td><td>Ask: Aditya kaun hai 😂</td></tr>
+      <tr><td><i>Corporate lingo leakage</i></td><td>Chronic</td><td>"abeyy optimisation"</td><td>"Kum corporate lingo karoonga 😂"</td></tr>
+      <tr><td><i>Sleep schedule mismatch</i></td><td>Structural</td><td>7:00 AM vs 10:00 AM</td><td>Penalty system</td></tr>
+      <tr><td><i>Yeti</i></td><td>Documented betrayal</td><td>Grievance no. 2 of 2, 4 Jul 2025</td><td>4 plates, as settlement</td></tr>
+      <tr><td><i>Chashma under the bed</i></td><td>Realised, 15 Jul</td><td>Papa. 4:09 AM.</td><td>"may its soul rest in peace"</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div></section>
+
+<!-- SEALED -->
+<section class="block" style="padding-top:0"><div class="wrap">
+  <div class="fig"><span class="mono">11 · Material non-public information</span><span class="mono">Restricted</span></div>
+  <div class="sealed reveal" id="sealed">
+    <div class="gate">
+      <h2 style="margin:0">Sealed <em>exhibits</em></h2>
+      <p class="lede" style="margin:10px auto 0">Restricted. Contains: a comma, a ribbon, a patent, and the kitchen. Tap to unseal.</p>
+      <button class="seal" id="unseal">Break<br>seal</button>
+    </div>
+    <div class="body">
+      <div class="exhibit"><span class="mono">Exhibit A · 5 Jul 2025 · 12:07 PM</span><div><q>"Opportunity to get wet in the rain with you." — "Hahah no getting wet already" — <em>"You should use a comma in that sentence."</em></q><div class="by">Shradha · "note to self"</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit B · 24 Aug 2025 · 10:53 PM · Day 1</span><div><q>"I can apply pressure. <em>Will you be able to handle?</em>" — "Haha I guess we'll find out."</q><div class="by">Re: massages. Allegedly.</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit C · 13 Sep 2025 · 1:31 AM</span><div><q>"Even if you make me the small spoon, I'll be the big spoon." — "i like being the small spoon more :))"</q><div class="by">Cutlery policy, ratified</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit D · 19 Oct 2025 · 11:28 AM</span><div><q>"nope that's only for you. <em>patent.</em>" — "Your patent will not be breached is all I am trying to say."</q><div class="by">Intellectual property, re: a spank</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit E · 19 Nov 2025 · 1:50 AM</span><div><q>"I am in. Your place or mine?" — <em>"mine. come. fast. run."</em></q><div class="by">Two minutes later: "Aapko thoda kum sexy hona padega. Varna things will generally get out of hand."</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit F · 25 Dec 2025 · 1:46 AM</span><div><q>"Babe since you are my Christmas present, <em>can I unwrap you</em> 😏"</q><div class="by">Anant · response, 11:36 AM: "hahaha comee"</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit G · 1 Feb 2026 · 2:57 AM</span><div><q>"Meet me outside 😈✨" — "aren't you dead" — <em>"Not my fault you look itna hot poora time."</em></q><div class="by">Adjacent hotel rooms, Ekta's wedding</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit H · 25 Feb 2026 · 1:45 AM</span><div><q>"You look sooo good in tied hair. Wonder how good you'll look <em>tied down</em> :)"</q><div class="by">Anant · response, 4:04 AM: "Wow! Pagal ladke."</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit I · 25 Feb 2026 · 11:53 AM</span><div><q>"that makes us a jack-ass too :P" — <em>"Love that ass tho."</em></q><div class="by">Ten minutes earlier: "Can't keep my hands off you vaala scene hai mere saath toh." — "same scene hai mera bhii"</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit J · 20 May 2026 · 5:35 PM</span><div><q>"Thailand, Hyd and Goa bhi ho chuka hai vaise. Leela too :') <em>Kitchen is left filhaal :)</em>" — "Makes sense."</q><div class="by">Geographic coverage audit</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit K · 22 May 2026 · 2:33 PM</span><div><q>"sach mein turned on thi maii. you loooked TOOO HOT today. <em>matlab irrestible.</em>"</q><div class="by">Shradha · entered without objection</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit L · 22 Jun 2026 · 10:16 PM</span><div><q>"Sexy dress babe. Wanna do things." — "then do things ❤️" — <em>"Coming."</em></q><div class="by">Followed by a 51-minute video call. Earlier that evening: "Work no work. Clothes no clothes."</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit M · 13 Jul 2026 · 2:32 PM</span><div><q>"Zyada push toh nai kar rahi na?" — "Thoda <em>push me on the bed</em> also :')" — "Always babyy."</q><div class="by">Re: the reel. And other things.</div></div></div>
+      <div class="exhibit"><span class="mono">Exhibit N · 29 Jun 2026 · 4:06 PM</span><div><q>"wasn't yesterday enough" — <em>"Never enough."</em></q><div class="by">The respondent rests.</div></div></div>
+      <p class="foot" style="font-family:var(--serif);font-style:italic;font-size:1.05rem;margin-top:26px">Exhibits O through Z withheld. You know which ones. Redacted for length, not for lack of material.</p>
+    </div>
+  </div></section>
+
+<!-- TIMELINE -->
+<section class="tl" id="tl">
+  <div class="sticky">
+    <div class="head wrap"><div class="fig" style="margin:0"><span class="mono">12 · The year in review</span><span class="mono">Keep scrolling →</span></div></div>
+    <div class="road"></div>
+    <div class="track" id="track">
+      <div class="stop"><div class="d">15 Jun 2025</div><h3>A place called Home.</h3><p>Ambience Mall, Vasant Kunj. Ophelia was outdoor-only, so: Home. She was, for the first recorded time, slightly late.</p><div class="q">"Can we meet at 7:45 instead, safe side"</div></div>
+      <div class="stop"><div class="d">5 Jul 2025</div><h3>The popcorn problem.</h3><p>F1 at IMAX, then bowling. Hands were held. Eventually.</p><div class="q">"I wanted to hold your hand but I had to hold the popcorn 🍿"</div></div>
+      <div class="stop"><div class="d">19 Aug 2025 · 9:00 PM</div><h3>Hinge, deleted. Twice. Within seconds.</h3><p>Unplanned, simultaneous, and the official company position is that Hinge does not exist.</p><div class="q">"Ye hinge hota hi kya hai"</div></div>
+      <div class="stop big"><div class="d">24 Aug 2025 · Day 1 of FY</div><h3>"What's up, boyfriend?"</h3><p>Nehru Park at 7 AM, Cafe Lota, India Gate. A yes at a red light, on a song cue. The year starts here.</p><div class="q">"Bass missing my gf yaar"</div></div>
+      <div class="stop"><div class="d">27 Sep 2025 · 9:59 AM</div><h3>First "love you".</h3><p>Hers. He took nine minutes to reply, which by his standards is a coma.</p><div class="q">"Love you babe! 🥹" — "Love you too cutie."</div></div>
+      <div class="stop"><div class="d">27 Nov 2025</div><h3>Thailand. Red shirt era.</h3><p>Bangkok, Koh Samui, Phuket. A photo-alibi itinerary was produced. It had a tracker.</p><div class="q">"Ek photos ka bhi itinerary tracker bana lenge babe"</div></div>
+      <div class="stop"><div class="d">18 Dec 2025</div><h3>Explosion box. Butterflies.</h3><p>His birthday at Roseate House. Mom and Shradha had, independently, the exact same thought.</p><div class="q">"KYA SAME SOCHTE HO AAP LOG"</div></div>
+      <div class="stop"><div class="d">1 Jan 2026</div><h3>FY kicks off with a two-hour call.</h3><p>1:29 to 3:29 AM. Then matching white sweatshirts at Ophelia, and a claw machine beaten on the first try.</p><div class="q">"2026 gonna be my year"</div></div>
+      <div class="stop"><div class="d">14 Feb 2026</div><h3>Valentine's Day. With both sets of parents.</h3><p>Tsk tsk tsk.</p><div class="q">"Aap mere ho. Choice nahi hai aapke paas."</div></div>
+      <div class="stop"><div class="d">24 Feb 2026 · 12:00:11 AM</div><h3>The six-month letter.</h3><div class="pq">"6 month ago, you agreed to be my Home, my safe space, my partner in crime… Still remember you kissing me at that red light, saying yes to being my baby."</div></div>
+      <div class="stop big"><div class="d">3 Apr 2026</div><h3>Goa. Ring size 15.9mm, as self-reported.</h3><p>She acted dumb at home for two weeks. Then typo'd her way into the family lore.</p><div class="q">"Fiance bante hi bat :') 🦇"</div></div>
+      <div class="stop"><div class="d">15 May 2026</div><h3>Roka.</h3><p>Dhak dhak dhak at 4:33 PM. "Happy Roka Baby ♥️✨" at 10:24. "Happy Roka babe! ❤️" at 10:28.</p></div>
+      <div class="stop"><div class="d">18 May 2026</div><h3>He quits McKinsey. InfinityFirst is born.</h3><p>Four days later she named it.</p><div class="q">"Yayy! Infinity first. i like the sound of that"</div></div>
+      <div class="stop"><div class="d">18 Jun 2026</div><h3>She's promoted.</h3><p>DM to JM. Announced in lowercase, celebrated in caps.</p><div class="q">"CONGRATULATIONS BABYYY ♥️"</div></div>
+      <div class="stop"><div class="d">21 Jun 2026</div><h3>Noor Mahal, booked.</h3><p>Karnal. 300 pax. 150 rooms. Management declined to comment on the budget.</p></div>
+      <div class="stop"><div class="d">10 Jul 2026</div><h3>The reel goes viral.</h3><p>11k views by teatime on day one. Then 50k. Then the rest of the internet.</p></div>
+      <div class="stop big"><div class="d">24 Aug 2026</div><h3>Year one, closed.</h3><p>59,372 messages, 195 hours of calls, one ring. You are here. ♥️</p></div>
+    </div>
+    <div class="walker" id="walker">
+      <img class="base" src="cut/beach.png" alt="">
+      <img class="sw" data-from=".62" src="cut/goa.png" alt="">
+    </div>
+    <div class="prog"><i></i></div>
+  </div>
+</section>
+
+<!-- OUTLOOK -->
+<section class="outlook"><div class="wrap">
+  <div class="mono">13 · FY27 guidance</div>
+  <h2 class="reveal">Forward-looking <i>statements.</i></h2>
+  <div class="guid reveal d1">
+    <div><div class="mono">Venue</div><div class="n">Noor Mahal Palace, Karnal</div></div>
+    <div><div class="mono">Dates</div><div class="n">22 – 31 Jan 2027</div></div>
+    <div><div class="mono">Days to go</div><div class="count" id="count">—<small>days</small></div></div>
+  </div>
+  <div class="mono" style="margin-top:22px">Wedding hashtag under review: #ShrAnanigans · "dudu weds bubu"</div>
+  <div class="two" style="align-items:end;margin-top:24px">
+    <div class="pullq reveal d2" style="margin-top:32px">"It's gonna be perfect. The only requirement for that is you being there. Nothing else matters to me. You and that look in your eyes which says I love you."<b>Anant · 21 Jun 2026 · 12:04 AM</b></div>
+    <div class="reveal d3"><div class="cut float" style="position:relative;width:min(72%,360px);margin-left:auto;--r:-2deg"><img src="cut/last.png" alt=""></div><div class="cap" style="width:min(72%,360px);margin-left:auto"><span>Fig. 13.1</span><span>Closing position</span></div></div>
+  </div>
+  <div class="final reveal d3">
+    <div><h3>Happy first anniversary, baby girl. ♥️</h3><div class="signoff" style="margin-top:18px;font-size:1.2rem">Love you more.<b style="font-size:1.8rem">— your baby</b></div></div>
+    <div class="last"><div class="mono">Equity position · 14 Feb 2026 · 1:45 AM</div>"Aap mere ho. Choice nahi hai aapke paas."<br>"you're stuck with me!!!"<br>"Bhagwan aisa stuck sabko kare."<br>"happily stuck"</div>
+  </div>
+</div></section>
+
+<footer><div class="wrap"><div class="mono" style="letter-spacing:.1em;line-height:1.9">ShrAnanigans Inc. · Annual Report FY25–26 · All figures verified against 59,372 primary source documents · No messages were deleted in the making of this report. Kya delete karre ho bb?</div></div></footer>
+
+<script>
+
+// gate
+(function(){const g=document.getElementById('gate'),f=document.getElementById('gform'),pw=document.getElementById('pw'),err=document.getElementById('gerr');
+const ok=v=>{v=v.toLowerCase().replace(/[^a-z0-9]/g,'');return ['24','2408','242025','2408','24aug','24august','24082025','24082026','240825','240826','aug24','august24'].includes(v)};
+function open(){g.classList.add('open');document.body.classList.remove('locked');sessionStorage.setItem('shr-open','1');setTimeout(()=>g.remove(),800)}
+if(sessionStorage.getItem('shr-open')||location.search.includes('static')){g.remove()}else{document.body.classList.add('locked');setTimeout(()=>pw.focus(),300)}
+f.addEventListener('submit',e=>{e.preventDefault();if(ok(pw.value)){err.classList.remove('show');open()}else{err.classList.add('show');f.classList.remove('shake');void f.offsetWidth;f.classList.add('shake');pw.select()}});
+pw.addEventListener('input',()=>err.classList.remove('show'));})();
+// reveal on scroll (+ debug ?static shows everything immediately)
+if(location.search.includes('static')){document.documentElement.classList.add('static');const sp=new URLSearchParams(location.search);if(sp.get('open'))document.getElementById('sealed').classList.add('open');if(sp.get('sel')){const t=document.querySelector(sp.get('sel')).closest('section');let el=t.previousElementSibling;while(el){if(el.tagName==='SECTION')el.style.display='none';el=el.previousElementSibling}}}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});
+document.querySelectorAll('.reveal,.scene,.cards').forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight*0.9&&r.bottom>0)el.classList.add('in');else io.observe(el)});
+// count-up
+const cio=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,end=+el.dataset.count,tgt=el.querySelector('span')||el,small=el.querySelector('small');const t0=performance.now(),d=1500;
+  (function f(t){const p=Math.min(1,(t-t0)/d),v=Math.round(end*(1-Math.pow(1-p,3)));tgt.firstChild.nodeValue=v.toLocaleString('en-IN');if(p<1)requestAnimationFrame(f)})(t0);cio.unobserve(el)}),{threshold:.6});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+// clock histogram (messages by hour)
+const H=[3702,2085,707,164,93,47,56,247,1007,1653,2626,3454,3946,2017,3221,3764,3541,3029,2555,2568,2616,2929,3575,3719];
+const mx=Math.max(...H);document.getElementById('clock').innerHTML=H.map((v,i)=>`<i class="${i>=5&&i<12?'am':(i>=21||i<2?'pm':'')}" style="--h:${Math.round(v/mx*100)};--i:${i}"></i>`).join('');
+// timeline scroll progress
+const tl=document.getElementById('tl'),track=document.getElementById('track'),walker=document.getElementById('walker');
+function len(){const w=track.scrollWidth-window.innerWidth*0.5+ (window.innerWidth*0.1);track.style.setProperty('--len',`-${w}px`)}
+let last=0,still;
+function upd(){const r=tl.getBoundingClientRect();const total=tl.offsetHeight-window.innerHeight;const p=Math.min(1,Math.max(0,-r.top/total));tl.style.setProperty('--p',p.toFixed(4));
+  tl.classList.toggle('moving',Math.abs(p-last)>0.0005);last=p;clearTimeout(still);still=setTimeout(()=>tl.classList.remove('moving'),180);
+  walker.querySelectorAll('.sw').forEach(s=>s.classList.toggle('on',p>=+s.dataset.from));walker.querySelector('.base').style.opacity=p>=.62?0:1}
+
+// pet-name charts
+const M=['Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug'];
+function chart(id,series,H){const W=560,L=8,R=86,T=14,B=28;const mx=Math.max(...series.flatMap(s=>s.v));const x=i=>L+i*(W-L-R)/14,y=v=>T+(H-T-B)*(1-Math.sqrt(v/mx));
+ let out='';for(let i=0;i<15;i+=2)out+=`<text x="${x(i)}" y="${H-8}" text-anchor="middle">${M[i]}${i==0?" '25":i==7?" '26":""}</text>`;
+ out+=`<line x1="${L}" x2="${W-R}" y1="${H-B}" y2="${H-B}" stroke="var(--ink)" stroke-width="1"/>`;
+ const last=series[0].v.length-1;const labs=series.map(s=>({s,ly:y(s.v[last])})).sort((a,b)=>a.ly-b.ly);for(let i=1;i<labs.length;i++){if(labs[i].ly-labs[i-1].ly<14)labs[i].ly=labs[i-1].ly+14}
+ series.forEach(s=>{const d=s.v.map((v,i)=>`${i?'L':'M'}${x(i).toFixed(1)} ${y(v).toFixed(1)}`).join(' ');const ly=labs.find(l=>l.s===s).ly;
+  out+=`<path d="${d}" stroke="${s.c}" opacity="${s.o||1}"/><text class="lbl" x="${x(last)+8}" y="${ly+4}" fill="${s.c}">${s.n}</text>`;});
+ document.getElementById(id).innerHTML=out;}
+chart('ch1',[{n:'babe',c:'var(--red)',v:[0,0,16,160,186,252,292,261,193,127,127,144,190,125,137]},{n:'baby',c:'#D98E7E',v:[4,8,8,29,41,48,96,74,129,176,130,67,96,94,55]},{n:'cutie',c:'var(--gold)',v:[3,20,47,100,76,114,104,51,54,58,53,37,24,14,15]},{n:'baby girl',c:'#8A5A3C',v:[0,0,0,0,0,0,15,11,17,35,32,11,7,21,8]},{n:'shrubs',c:'var(--mute)',v:[2,4,61,21,3,1,2,2,1,0,0,0,0,0,0]}],230);
+chart('ch2',[{n:'babe',c:'var(--blue)',v:[0,0,9,54,66,64,72,59,49,19,20,29,36,30,31]},{n:'baby',c:'#7FA7D2',v:[2,3,5,28,25,32,49,58,51,56,34,24,47,24,31]},{n:'annie nannie',c:'var(--gold)',v:[0,0,15,12,0,5,14,9,13,12,15,8,5,0,0]},{n:'cutie',c:'var(--mute)',v:[3,6,7,12,18,16,10,4,13,8,12,3,4,6,5]},{n:'dudu',c:'var(--red)',v:[0,0,0,0,0,0,0,0,0,0,0,0,4,11,14]}],200);
+// Matter No. 1 — counter-claim
+const replies=['Not mostest than me.','Nope. Can\'t match me.','Chup chaap love me. Samjhe.'];let ri=0;
+document.getElementById('claim').addEventListener('click',function(){const tb=document.querySelector('#matter tbody');const now=new Date();const t=now.toLocaleTimeString('en-IN',{hour:'2-digit',minute:'2-digit'});const d=now.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+ const r1=tb.insertRow();r1.className='new';r1.innerHTML=`<td><i>I love you more</i><br>Counter-claim received.</td><td>Shradha</td><td class="r">${d}<br>${t}</td>`;
+ setTimeout(()=>{const r2=tb.insertRow();r2.className='new';r2.innerHTML=`<td><i>${replies[ri]}</i></td><td>Anant</td><td class="r">${d}<br>${t}</td>`;ri++;if(ri>=replies.length){this.disabled=true;this.innerHTML='Appeal denied ♥️'}},600)});
+// Show?
+document.getElementById('show').addEventListener('click',()=>{const o=document.getElementById('showout');const ok=Math.random()<.4;o.style.color=ok?'var(--ink)':'var(--mute)';o.textContent=ok?'📷 image omitted':'seen, 10:42 PM'});
+// seal
+document.getElementById('unseal').addEventListener('click',()=>document.getElementById('sealed').classList.add('open'));
+// countdown to 22 Jan 2027
+const days=Math.max(0,Math.ceil((new Date(2027,0,22)-new Date())/86400000));document.getElementById('count').innerHTML=days+'<small>days</small>';
+addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});addEventListener('resize',()=>{len();upd()});len();upd();
+</script>
+</body></html>
